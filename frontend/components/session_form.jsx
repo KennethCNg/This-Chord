@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,8 +14,10 @@ class SessionForm extends React.Component {
     this.errors = this.errors.bind(this);
     this.header = this.header.bind(this);
     this.button = this.button.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
 
   }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -29,15 +31,32 @@ class SessionForm extends React.Component {
   linkRedirects() {
     if (this.props.formType === "login") {
       return (
+
         <div className="session-link">
-          Need an account? <Link to="/signup" className="session-redirect-link">Login</Link>
+
+          <div className="link-text">
+            <p className="link-text-p">Need an account? </p>
+            <Link to="/signup" className="session-redirect-link"> Login </Link>
+            <p className="link-text-p">Or take a peek </p>
+            <div className="guest-link" onClick={this.guestLogin}> Guest Login </div>
+          </div>
+
         </div>
+
       );
     } else {
       return (
         <div className="session-link">
-          Already have an account? <Link to="/login" className="session-redirect-link">Register</Link>
+
+          <div className="link-text">
+            <p className="link-text-p">Already have an account? </p>
+            <Link to="/login" className="session-redirect-link"> Register </Link>
+            <p className="link-text-p">Or Take a peek</p>
+            <div className="guest-link" onClick={this.guestLogin}> Guest Login </div>
+          </div>
+
         </div>
+
       );
     }
   }
@@ -85,9 +104,9 @@ button() {
   }
 }
 
-// guestLogin() {
-//   this.props.processForm(this.props.guest);
-// }
+guestLogin() {
+  this.props.guestLogin(this.props.guest);
+}
 
   render() {
     return (
@@ -123,7 +142,9 @@ button() {
 
               {this.errors()}
               {this.button()}
+
               <div className="session-divider"></div>
+
               <footer className="session-link">
                 {this.linkRedirects()}
 

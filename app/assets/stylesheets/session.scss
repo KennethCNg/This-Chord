@@ -2,13 +2,11 @@
   display: flex;
   background-image: image-url("dota-2-wallpaper-4.jpg");
   height: 100vh;
-  /*width: 100vh;*/
 }
 
  .auth-inner {
    display: flex;
    justify-content: center;
-   position: relative;
    height: 100%;
    width: 100%;
  }
@@ -21,15 +19,16 @@
    flex-direction: column;
    font-size: 16px;
    padding: 30px;
-   width: 67%;
-   height: 50%;
+   width: 400px;
+   height: 350px;
    opacity: 0.9;
  }
 
  .session-img {
+   display: flex;
    padding: 30px;
-   width: 33%;
-   height:50%;
+   width: 228px;
+   height:350px;
    background-image: image-url("Discord-Logo.png");
    opacity: 0.9;
    background-position: center;
@@ -39,10 +38,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 33%;
 }
 
 .register {
+  display: flex;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 9px;
   font-weight: bold;
@@ -57,8 +56,8 @@
 }
 
 .form-header {
-  margin-bottom: 25px;
   display: flex;
+  margin-bottom: 25px;
   justify-content: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
@@ -66,6 +65,7 @@
 }
 
 .session-input {
+  display: flex;
   background-color: transparent;
   color: #99AAB5;
   padding: 2px;
@@ -100,30 +100,54 @@
 
 .session-link {
   font-size: 10px;
-  margin-top: 10px;
+  margin-top: 6px;
   line-height: 12px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #99AAB5;
 }
 
+.link-text-p {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
 .session-redirect-link {
+  display: flex;
   font-size: 11px;
   color: white;
   text-decoration: none;
 }
 
-#guest-link {
+.session-redirect-link:hover {
+  text-decoration: underline;
   color: white;
+  font-weight: bold;
 }
 
+.guest-link {
+  display: flex;
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.guest-link:hover {
+  text-decoration: underline;
+  color: white;
+  font-weight: bold;
+}
+
+.link-text {
+  display: flex;
+}
 
 .session-errors > * {
+  display: flex;
   background-color: #23272A;
   position: absolute;
   color: red;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 9px;
-  font-weight: bold;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 5px;
 }

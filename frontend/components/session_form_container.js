@@ -16,8 +16,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   if (ownProps.location.pathname === "/login") {
       return {
         processForm: (user) => dispatch(login(user)),
+        guestLogin: (guest) => dispatch(login(guest)),
       };
     } else { return {
+        guestLogin: (guest) => dispatch(login(guest)),
         processForm: (user) => dispatch(signup(user)),
       };
       }
