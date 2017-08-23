@@ -14,7 +14,7 @@
       1: {
         id: 1,
         body: "testing",
-        user_id: 1,
+        author_id: 1,
         chatroom_id: 1
         }
     },

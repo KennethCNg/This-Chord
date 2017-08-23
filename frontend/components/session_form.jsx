@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
           <div className="link-text">
             <p className="link-text-p">Need an account? </p>
             <Link onClick={this.props.resetErrors} to="/signup" className="session-redirect-link"> Register </Link>
-            <p className="link-text-p">Or take a peek </p>
+            <p className="link-text-p">or take a peek </p>
             <div className="guest-link" onClick={this.guestLogin}> Guest Login </div>
           </div>
 
@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
           <div className="link-text">
             <p className="link-text-p">Already have an account? </p>
             <Link onClick={this.props.resetErrors} to="/login" className="session-redirect-link"> Login </Link>
-            <p className="link-text-p">Or Take a peek</p>
+            <p className="link-text-p">or take a peek</p>
             <div className="guest-link" onClick={this.guestLogin}> Guest Login </div>
           </div>
 
@@ -122,7 +122,7 @@ guestLogin() {
                   USERNAME
                 </label>
                 <div>
-                <input required className="session-input" type='password'
+                <input required className="session-input" type='text'
                   value={ this.state.username }
                   onChange={this.update('username')} />
                 </div>
@@ -135,7 +135,7 @@ guestLogin() {
                 </label>
               </div>
               <div>
-                <input required className="session-input" type='text'
+                <input required className="session-input" type='password'
                   value={ this.state.password }
                   onChange={this.update('password')} />
               </div>
