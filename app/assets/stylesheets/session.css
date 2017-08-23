@@ -21,17 +21,18 @@
    flex-direction: column;
    font-size: 16px;
    padding: 30px;
-   width: 64%;
+   width: 67%;
    height: 50%;
    opacity: 0.9;
  }
 
- .session-placeholder {
+ .session-img {
    padding: 30px;
-   width: 36%;
+   width: 33%;
    height:50%;
-   background-color: #FFFFFF;
+   background-image: url("Discord-Logo.png");
    opacity: 0.9;
+   background-position: center;
  }
 
  .session-form-container {

@@ -90,7 +90,7 @@ button() {
         <div className="auth-inner">
           <div className="session-form-container">
             {this.errors()}
-              <div className="session-placeholder"></div>
+              <div className="session-img"></div>
             <form onSubmit={ this.handleSubmit } className="session-form-box">
               {this.header()}
               <div>
