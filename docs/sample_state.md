@@ -30,6 +30,13 @@
         signup: ["Username/password cannot be blank"],
         messageForm: ["Message body cannot be blank"]
         }
+   },
+   session:{
+     currentUser: {
+       id: 1,
+       username: "Test1"
+     },
+     errors: []
    }
-}
+};
 ```

@@ -23,10 +23,12 @@
 
 - `GET /api/messages`
 - `POST /api/messages`
+- `DELETE /api/messages/:id`
 
 ### Channels
 
 - `GET /api/channels`
 - `POST /api/channels`
 - `GET /api/channels/:id`
+- `UPDATE /api/channels/:id`
 - `DELETE /api/channels/:id`
