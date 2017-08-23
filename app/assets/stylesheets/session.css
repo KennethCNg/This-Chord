@@ -1,19 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
 .auth-outer {
   display: flex;
   background-image: url("dota-2-wallpaper-4.jpg");
@@ -43,7 +27,9 @@
  }
 
  .session-placeholder {
+   padding: 30px;
    width: 36%;
+   height:50%;
    background-color: #FFFFFF;
    opacity: 0.9;
  }
@@ -51,6 +37,7 @@
  .session-form-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 33%;
 }
 
@@ -69,6 +56,7 @@
 }
 
 .form-header {
+  margin-bottom: 25px;
   display: flex;
   justify-content: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

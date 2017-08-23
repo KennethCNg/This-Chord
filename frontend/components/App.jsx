@@ -6,15 +6,14 @@ import { AuthRoute } from '../util/route_util';
 
 const App = () => {
   return (
-    <div>
-    <header>
-      <h1>Harmony</h1>
-    </header>
+      <div>
+        <header>
+        </header>
 
-    <Route path="/" exact component={GreetingContainer} />
-    <AuthRoute path="/login" exact component={SessionFormContainer} />
-    <AuthRoute path="/signup" exact component={SessionFormContainer} />
-  </div>
+        <Route path="/" exact component={GreetingContainer} />
+        <AuthRoute path="/login" exact component={SessionFormContainer} />
+        <AuthRoute path="/signup" exact component={SessionFormContainer} />
+      </div>
 );
 };
 

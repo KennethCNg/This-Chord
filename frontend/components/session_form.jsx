@@ -29,14 +29,14 @@ class SessionForm extends React.Component {
   linkRedirects() {
     if (this.props.formType === "login") {
       return (
-        <div>
-          Need an account? <Link to="/signup">SignUp</Link>
+        <div className="session-link">
+          Need an account? <Link to="/signup" className="session-redirect-link">Login</Link>
         </div>
       );
     } else {
       return (
-        <div>
-          Have an account? <Link to="/login">Login</Link>
+        <div className="session-link">
+          Already have an account? <Link to="/login" className="session-redirect-link">Register</Link>
         </div>
       );
     }
@@ -64,11 +64,11 @@ class SessionForm extends React.Component {
 header() {
   if (this.props.formType === 'login') {
     return (
-      <h3>WELCOME BACK</h3>
+      <h3 className="form-header">WELCOME BACK.</h3>
     );
   } else {
       return (
-        <h3>MY ACCOUNT</h3>
+        <h3 className="form-header">CREATE AN ACCOUNT</h3>
       );
   }
 }
@@ -80,47 +80,50 @@ button() {
     );
   } else {
       return (
-        <button className={"primary-button"}>Signup</button>
+        <button className={"primary-button"}>Continue</button>
       );
   }
 }
   render() {
     return (
-      <div className="login-form-container">
+      <div className="auth-outer">
+        <div className="auth-inner">
+          <div className="session-form-container">
+            {this.errors()}
+              <div className="session-placeholder"></div>
+            <form onSubmit={ this.handleSubmit } className="session-form-box">
+              {this.header()}
+              <div>
+                <label className="register">
+                  USERNAME
+                </label>
+                <div>
+                <input className="session-input" type='text'
+                  value={ this.state.username }
+                  onChange={this.update('username')} />
+                </div>
+              </div>
 
-        {this.errors()}
+              <br/>
+              <div>
+                <label className="register">
+                  PASSWORD
+                </label>
+              </div>
+              <div>
+                <input className="session-input" type='text'
+                  value={ this.state.password }
+                  onChange={this.update('password')} />
+              </div>
 
-        <form onSubmit={ this.handleSubmit } className="login-form-box">
-          {this.header()}
-          <div>
-            <label>
-              Username:
-            </label>
-            <div>
-            <input className="session-color" type='text'
-              value={ this.state.username }
-              onChange={this.update('username')} />
-            </div>
-          </div>
-
-          <br/>
-          <div>
-            <label>
-              Password:
-            </label>
-          </div>
-          <div>
-            <input className="session-color" type='text'
-              value={ this.state.password }
-              onChange={this.update('password')} />
-          </div>
-
-          {this.button()}
-
-          <footer>
-            {this.linkRedirects()}
-          </footer>
-        </form>
+              {this.button()}
+              <div className="session-divider"></div>
+              <footer className="session-link">
+                {this.linkRedirects()}
+              </footer>
+            </form>
+        </div>
+      </div>
     </div>
   );
   }
