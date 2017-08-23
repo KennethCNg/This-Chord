@@ -115,3 +115,15 @@
 #guest-link {
   color: white;
 }
+
+
+.session-errors > * {
+  background-color: #23272A;
+  position: absolute;
+  color: red;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px;
+}

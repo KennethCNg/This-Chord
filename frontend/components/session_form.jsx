@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
         );
       });
       return (
-        <ul>
+        <ul className="session-errors">
           { errorList }
         </ul>
 
@@ -94,7 +94,7 @@ button() {
       <div className="auth-outer">
         <div className="auth-inner">
           <div className="session-form-container">
-            {this.errors()}
+
               <div className="session-img"></div>
             <form onSubmit={ this.handleSubmit } className="session-form-box">
               {this.header()}
@@ -121,6 +121,7 @@ button() {
                   onChange={this.update('password')} />
               </div>
 
+              {this.errors()}
               {this.button()}
               <div className="session-divider"></div>
               <footer className="session-link">
