@@ -1,9 +1,10 @@
 # Harmony
 
-Heroku Link:
+[Heroku link][heroku]
 
 [Trello link][trello]
 
+[heroku]: http://this-chord.herokuapp.com/#/
 [trello]: https://trello.com/b/SZSSTUUY/discord-clone
 
 ## MVP (Minimum Viable Product)
