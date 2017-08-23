@@ -18,6 +18,13 @@ export const receiveErrors = errors =>  {
   };
 };
 
+export const clearErrors = errors => {
+  return {
+    type: RECEIVE_ERRORS,
+    errors,
+  };
+};
+
 export const signup = user => dispatch => {
   return (
     APIUtil.signup(user)
