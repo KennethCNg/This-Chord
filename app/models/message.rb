@@ -18,4 +18,8 @@ class Message < ApplicationRecord
     foreign_key: :author_id,
     class_name: 'User'
   )
+
+  def self.find_by_chatroom_id(id)
+
+  end
 end
