@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     loggedin: Boolean(state.session.currentUser),
     errors: state.errors,
-    formType: (ownProps.location.pathname === "/login" ? "login" : "signup")
+    formType: (ownProps.location.pathname === "/login" ? "login" : "signup"),
+    guest: {user:{username: "test1", password: "password"}},
 
   };
 };
@@ -14,10 +15,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   if (ownProps.location.pathname === "/login") {
       return {
-        processForm: (user) => dispatch(login(user))
+        processForm: (user) => dispatch(login(user)),
       };
     } else { return {
-        processForm: (user) => dispatch(signup(user))
+        processForm: (user) => dispatch(signup(user)),
       };
       }
 };

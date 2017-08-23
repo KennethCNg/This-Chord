@@ -14,8 +14,8 @@ class SessionForm extends React.Component {
     this.errors = this.errors.bind(this);
     this.header = this.header.bind(this);
     this.button = this.button.bind(this);
-  }
 
+  }
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -84,6 +84,11 @@ button() {
       );
   }
 }
+
+// guestLogin() {
+//   this.props.processForm(this.props.guest);
+// }
+
   render() {
     return (
       <div className="auth-outer">
@@ -120,8 +125,10 @@ button() {
               <div className="session-divider"></div>
               <footer className="session-link">
                 {this.linkRedirects()}
+
               </footer>
             </form>
+
         </div>
       </div>
     </div>
