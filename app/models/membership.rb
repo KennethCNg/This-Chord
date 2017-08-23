@@ -11,5 +11,17 @@
 
 class Membership < ApplicationRecord
 
+  belongs_to(
+    :member,
+    primary_key: :id,
+    foreign_key: :member_id,
+    class_name: 'User'
+  )
 
+  belongs_to(
+    :channel,
+    primary_key: :id,
+    foreign_key: :channel_id,
+    class_name: 'Chatroom'
+  )
 end

@@ -11,6 +11,7 @@
 #
 
 class Message < ApplicationRecord
+  validates :body, :author_id, :chatroom_id, presence: true
 
   belongs_to(
     :author,
@@ -19,7 +20,11 @@ class Message < ApplicationRecord
     class_name: 'User'
   )
 
-  def self.find_by_chatroom_id(id)
+  belongs_to(
+  :chatroom,
+  primary_key: :id,
+  foreign_key: :chatroom_id,
+  class_name: 'Chatroom'
+  )
 
-  end
 end

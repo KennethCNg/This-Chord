@@ -23,6 +23,26 @@ class User < ApplicationRecord
     class_name: 'Message'
   )
 
+  has_many(
+    :chatrooms,
+    primary_key: :id,
+    foreign_key: :admin_id,
+    class_name: 'Chatroom'
+  )
+
+  has_many(
+    :memberships,
+    primary_key: :id,
+    foreign_key: :member_id,
+    class_name: 'Membership'
+  )
+
+  has_many(
+    :chatroom_memberships,
+    through: :memberships,
+    source: :channel
+  )
+
   def self.find_user_by_credentials(username, password)
     user = User.find_by(username: username)
     user && BCrypt::Password.new(user.password_digest).is_password?(password) ? user : nil
