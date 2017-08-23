@@ -21,7 +21,8 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
-admin_id   | integer   | not null, foreign key (references users), indexed
+private     | boolean   | not null
+admin_id    | integer   | not null, foreign key (references users), indexed
 
 ## memberships
 column name | data type | details
