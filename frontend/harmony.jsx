@@ -19,8 +19,9 @@ if (window.currentUser) {
 });
 
 
-// window.getState = store.getState;
+const store = configureStore();
 // window.dispatch = store.dispatch;
+// window.getState = store.getState;
 // window.signup = signup;
 // window.login = login;
 // window.logout = logout;

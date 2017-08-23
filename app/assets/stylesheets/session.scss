@@ -2,13 +2,13 @@
   display: flex;
   background-image: image-url("dota-2-wallpaper-4.jpg");
   height: 100vh;
+  width: 1445px;
 }
 
  .auth-inner {
    display: flex;
    justify-content: center;
-   height: 100%;
-   width: 100%;
+   width: 1445px;
  }
 
  .session-form-box {
@@ -38,6 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 628px;
 }
 
 .register {
@@ -146,8 +147,8 @@
   background-color: #23272A;
   position: absolute;
   color: red;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 9px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
   margin-top: 5px;
 }

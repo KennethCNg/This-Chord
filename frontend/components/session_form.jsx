@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
 
           <div className="link-text">
             <p className="link-text-p">Need an account? </p>
-            <Link to="/signup" className="session-redirect-link"> Login </Link>
+            <Link to="/signup" className="session-redirect-link"> Signup </Link>
             <p className="link-text-p">Or take a peek </p>
             <div className="guest-link" onClick={this.guestLogin}> Guest Login </div>
           </div>

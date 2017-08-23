@@ -19,8 +19,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         guestLogin: (guest) => dispatch(login(guest)),
       };
     } else { return {
-        guestLogin: (guest) => dispatch(login(guest)),
         processForm: (user) => dispatch(signup(user)),
+        guestLogin: (guest) => dispatch(login(guest)),
       };
       }
 };
