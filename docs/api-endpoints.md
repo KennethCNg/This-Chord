@@ -32,3 +32,12 @@
 - `GET /api/channels/:id`
 - `UPDATE /api/channels/:id`
 - `DELETE /api/channels/:id`
+
+## BONUS
+### Servers
+
+- `GET /api/servers`
+- `POST /api/servers`
+- `GET /api/servers/:id`
+- `UPDATE /api/servers/:id`
+- `DELETE /api/servers/:id`
