@@ -1,6 +1,6 @@
 class Api::MessagesController < ApplicationController
     def index
-      @messages = Messages.all
+      @messages = Message.all
       render :index
     end
 
