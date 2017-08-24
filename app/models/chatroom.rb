@@ -15,7 +15,7 @@ class Chatroom < ApplicationRecord
   has_many(
     :messages,
     primary_key: :id,
-    foreign_key: chatroom_id,
+    foreign_key: :chatroom_id,
     class_name: 'Message'
   )
 

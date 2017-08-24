@@ -15,10 +15,10 @@ class Api::MessagesController < ApplicationController
     def destroy
       message = Message.find(params[:id])
       message.destroy
-
+      render :show
     end
 
     def message_params
-      params.require(:message).permit(:body)
+      params.require(:message).permit(:body, :author_id, :chatroom_id)
     end
 end
