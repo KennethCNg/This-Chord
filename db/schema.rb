@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170823184700) do
 
   create_table "chatrooms", force: :cascade do |t|
     t.string "name", null: false
-    t.boolean "private", null: false
+    t.boolean "private", default: false, null: false
     t.integer "admin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
