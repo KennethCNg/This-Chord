@@ -39,21 +39,18 @@ Harmony is a web application inspired by Discord, the free voice and text chat a
 
 **Objective:** Sessions can be created via the login page and signup page. Users can be created via the signup page.
 
-### Phase 3: Channel and Direct Messages (2 1/2 Days)
+### Phase 3: Working Chatroom (2 Days)
 
-**Objective:** Implement modular direct messages links and channel buttons
+**Objective:** Implement working Chatrooms
 
-### Phase 4: Working Channel and Direct Messages page (2 1/2 Days)
+### Phase 4: Working Multi-person Direct Messages page && DM's (1 Day)
 
-**Objective:** Learn Web Socket and implement chat functionality with message form
+**Objective:** Implement DM
 
-### Phase 5: Styling (1 Day)
+### Phase 5: Implement Websockets (1 Day)
 
-**Objective:** Any major styling
+**Objective:** Add the live function to chatrooms and DM's
 
-### Phase 6: Misc for inevitable bugs (1 Day)
-
-**Objective:** Have no bugs and watch Game of Thrones
 
 ### Bonus Features (TBD)
 
