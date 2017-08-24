@@ -1,6 +1,7 @@
 class Api::MessagesController < ApplicationController
     def index
       @messages = Messages.all
+      render :index
     end
 
     def create

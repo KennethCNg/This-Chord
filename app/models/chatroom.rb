@@ -11,6 +11,8 @@
 #
 
 class Chatroom < ApplicationRecord
+  validates :name, :private, :admin_id, presence: true
+  validates :name, uniqueness: true
 
   has_many(
     :messages,
