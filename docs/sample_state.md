@@ -25,18 +25,20 @@
         member_id: [1, 2, 3],
         }
       },
-      errors: {
-        login: ["Incorrect username/password combination"],
-        signup: ["Username/password cannot be blank"],
-        messageForm: ["Message body cannot be blank"]
-        }
    },
-   session:{
+   session: {
      currentUser: {
        id: 1,
        username: "Test1"
      },
-     errors: []
+   }
+   ui: {
+     errors: {
+       ...
+     },
+     modals: {
+       ...
+     }
    }
 };
 ```
