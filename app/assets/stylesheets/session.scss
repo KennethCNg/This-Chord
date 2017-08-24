@@ -80,11 +80,13 @@
 }
 
 .session-input:focus {
+  -webkit-filter: brightness(150%);
   border-bottom: solid #99AAB5;
 }
 
 .session-input:hover {
   -webkit-filter: brightness(150%);
+  color: white;
 }
 
 .primary-button {
@@ -94,7 +96,7 @@
   color: white;
   border: none;
   border-radius: 3px;
-  height: 35px;
+  height: 55px;
   margin-top: 40px;
   font-size:13px;
 }
