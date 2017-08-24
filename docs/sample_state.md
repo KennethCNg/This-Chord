@@ -18,13 +18,35 @@
         chatroom_id: 1
         }
     },
-     chatrooms: {
+     servers: {
       1: {
         id: 1,
-        name: "chatroom1",
-        member_id: [1, 2, 3],
+        name: "server1",
+        channel_id: [1, 2, 3],
         }
-      },
+      }
+      channels: {
+        1: {
+          id: 1,
+          name: "channel1",
+          user_id: [1, 2, 3],
+        }
+        1: {
+          id: 1,
+          name: "channel1",
+          user_id: [1, 2, 3],
+        }
+        2: {
+          id: 2,
+          name: "channel2",
+          user_id: [1, 2, 3],
+        }
+        1: {
+          id: 1,
+          name: "channel3",
+          user_id: [1, 2, 3],
+        }
+      }
    },
    session: {
      currentUser: {
@@ -37,6 +59,9 @@
        ...
      },
      modals: {
+       ...
+     }
+     dropdown: {
        ...
      }
    }
