@@ -18,6 +18,15 @@ class SessionForm extends React.Component {
 
   }
 
+  componentDidMount() {
+    $(".Lul").mouseenter( () => {
+      $("#Lulchild").addClass("LulchildActive").removeClass("LulchildInactive");
+    });
+    $(".Lul").mouseleave( () => {
+      $("#Lulchild").addClass("LulchildInactive").removeClass("LulchildActive");
+    });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -117,33 +126,45 @@ guestLogin() {
               <div className="session-img"></div>
             <form onSubmit={ this.handleSubmit } className="session-form-box">
               {this.header()}
-              <div>
+              <div className="register-and-input">
+
+              <div >
                 <label className="register">
                   USERNAME
                 </label>
                 <div>
-                <input required className="session-input" type='text'
-                  value={ this.state.username }
-                  onChange={this.update('username')} />
+                  <input required className="session-input" type='text'
+                    value={ this.state.username }
+                    onChange={this.update('username')} />
+                  </div>
+                </div>
+
+                <br/>
+                <div>
+                  <label className="register">
+                    PASSWORD
+                  </label>
+                </div>
+
+
+                <div>
+                  <input required className="session-input" type='password'
+                    value={ this.state.password }
+                    onChange={this.update('password')} />
+              </div>
+
+              <div className="Lul">
+                FORGOT YOUR PASSWORD?
+                <div id='Lulchild' className="LulchildInactive">
+                  <br/>
+                   ¯\_(ツ)_/¯
                 </div>
               </div>
 
-              <br/>
-              <div>
-                <label className="register">
-                  PASSWORD
-                </label>
-              </div>
-              <div>
-                <input required className="session-input" type='password'
-                  value={ this.state.password }
-                  onChange={this.update('password')} />
               </div>
 
               {this.errors()}
               {this.button()}
-
-              <div className="session-divider"></div>
 
               <footer className="session-link">
                 {this.linkRedirects()}

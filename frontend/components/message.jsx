@@ -31,6 +31,7 @@ class Message extends React.Component {
         author_id: this.props.currentUserId,
         chatroom_id: this.props.chatroomId,
       };
+      this.state.body = "";
       const message = merge({}, placeholder);
       this.props.requestCreateMessage( {message} );
     }
@@ -51,11 +52,9 @@ class Message extends React.Component {
       });
       return (
       <div>
-        <div>
           <ul>
             { messageList }
           </ul>
-        </div>
       </div>
       );
     }
@@ -64,14 +63,22 @@ class Message extends React.Component {
   render() {
     return (
       <div>
-        {this.renderMessages()}
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <input required className="message_input" type='text'
-              value={ this.state.body }
-              onChange={this.update('body')} />
+
+
+          <div>
+            {this.renderMessages()}
+          </div>
+
+            <form className='message_form' onSubmit={this.handleSubmit}>
+
+              <div>
+                <input required className="message_input" type='text'
+                value={ this.state.body }
+                onChange={this.update('body')} />
+              </div>
+
           </form>
-        </div>
+
       </div>
     );
   }

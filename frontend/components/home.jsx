@@ -20,16 +20,24 @@ class Home extends React.Component {
   render() {
     if (this.props.currentUser) {
       return (
-        <div>
-          <h1>
+      <div className="home_container">
+
+
+
+        <div className="home-sidebar-left"></div>
+
+        <div className="home-direct_messages"></div>
+
+        <div className="home_message_container">
+          <h1 className="home_header">
             Welcome {this.props.currentUser.username}
-          </h1>
-          <div>
             <button onClick={ this.handleClick() }>Logout</button>
-          </div>
-          <div>
-            <MessageContainer/>
-          </div>
+          </h1>
+          <MessageContainer/>
+        </div>
+
+        <div className="home-sidebar-right"></div>
+
       </div>
     );
     }
