@@ -1,28 +1,19 @@
 import React from 'react';
 import { Link } from  'react-router-dom';
-// import Channel from './channel';
 import MessageContainer from './message_container';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleclick = this.handleclick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-
 
   handleClick() {
     return (e) => {
       e.preventDefault();
       this.props.requestLogout();
     };
-  }
-
-  handleEnter() {
-    return (e) => {
-      e.preventDefault();
-      this.props.
-    }
   }
 
 
@@ -33,6 +24,9 @@ class Home extends React.Component {
           <h1>
             Welcome {this.props.currentUser.username}
           </h1>
+          <div>
+            <button onClick={ this.handleClick() }>LogOut</button>
+          </div>
           <div>
             <MessageContainer/>
           </div>

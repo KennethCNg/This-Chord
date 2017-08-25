@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import merge from 'lodash/merge';
 // import { receiveMessages, requestAllMessages, requestDeleteMessage, RECEIVE_MESSAGE } from './actions/message_actions';
 // import { fetchAllMessages  } from './util/message_api_util';
 // import { signup, login, logout } from './actions/session_actions';
@@ -20,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.querySelector("#root");
   ReactDOM.render(<Root store={ store }/>, root);
 });
-
 // window.store = configureStore();
 // window.dispatch = store.dispatch;
 // window.getState = store.getState;
