@@ -7,7 +7,6 @@ class Api::MessagesController < ApplicationController
     def create
       @message = Message.new(message_params)
       if @message.save
-        render :show
       else
         render json: @message.errors.full_messages, status: 422
       end
@@ -16,6 +15,7 @@ class Api::MessagesController < ApplicationController
     def destroy
       @message = Message.find(params[:id])
       @message.destroy
+      render :index
     end
 
     def message_params
