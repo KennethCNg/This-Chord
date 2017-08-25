@@ -2,26 +2,32 @@ import * as MessageAPIUtil from '../util/message_api_util';
 import { receiveErrors } from './ui_actions';
 
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
-export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
 export const receiveMessages = messages => {
   return {
     type: RECEIVE_MESSAGES,
-    messages
+    messages,
   };
 };
 
-export const deleteMessage = message => {
-  return {
-    type: DELETE_MESSAGE,
-    message
-  };
-};
-
-export const requestDeleteMessage = message => dispatch => {
+export const requestDeleteMessage = messageid => dispatch => {
   return (
-    MessageAPIUtil.destroyMessage()
-      .then(() => dispatch(deleteMessage(null)),
+    MessageAPIUtil.destroyMessage(messageid)
+      .then(() => dispatch(requestAllMessages()),
     (err) => dispatch(receiveErrors(err.responseJSON)))
   );
+};
+
+export const requestAllMessages = () => dispatch => {
+    return (
+      MessageAPIUtil.fetchAllMessages()
+        .then(fetchedMessages => dispatch(receiveMessages(fetchedMessages)))
+      );
+};
+
+export const requestCreateMessage = (message) => dispatch => {
+    return (
+      MessageAPIUtil.createMessage(message)
+        .then(fetchedMessages => dispatch(receiveMessages(fetchedMessages)))
+    );
 };
