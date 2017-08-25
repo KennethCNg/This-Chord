@@ -41,27 +41,56 @@
   width: 628px;
 }
 
+.form-header {
+  display: flex;
+  padding-bottom: 25px;
+  margin-bottom: 20px;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+}
+
 .register {
   display: flex;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 10px;
   font-weight: bold;
 }
 
-.session-divider {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid white;
-  margin: 1em 0;
+.register-and-input {
+  margin-bottom: 50px;
 }
 
-.form-header {
+.Lul {
   display: flex;
-  margin-bottom: 25px;
-  justify-content: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  padding: 5px;
+  margin-top: 15px;
+  size: 10px;
+  white-space: nowrap;;
+}
+
+.Lul:hover {
+  -webkit-filter: brightness(150%);
+  display: block;
+  color: white;
+}
+
+.LulchildInactive {
+  color: #23272A;
+  position: absolute;
+}
+
+.LulchildActive {
+  color: #fff;
+  position: absolute;
+}
+
+.Lulchild:hover {
+  -webkit-filter: brightness(150%);
   color: white;
 }
 
@@ -75,7 +104,7 @@
   border: 0;
   outline: 0;
   background: transparent;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid gray;
   font-weight: bold;
 }
 
@@ -96,8 +125,8 @@
   color: white;
   border: none;
   border-radius: 3px;
-  height: 55px;
-  margin-top: 40px;
+  height: 60px;
+  margin-top: 10px;
   font-size:13px;
 }
 
@@ -105,8 +134,7 @@
   font-size: 12px;
   margin-top: 6px;
   line-height: 12px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #99AAB5;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .link-text-p {
@@ -150,7 +178,6 @@
   position: absolute;
   color: red;
   font-size: 11px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
   margin-top: 5px;
 }

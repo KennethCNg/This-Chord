@@ -1,0 +1,44 @@
+
+.home_container {
+  display: flex;
+  height: 100vh;
+  // background-image: image-url("dota-2-wallpaper-4.jpg");
+  flex-direction: row;
+}
+
+
+.home_sidebar_left {
+  display: flex;
+  height: 100%;
+  min-width: 88px;
+  background-color: red
+}
+
+.home_direct-messages {
+  display: flex;
+  height: 100%;
+  min-width: 240px;
+  background-color: blue;
+}
+
+.home_message_container {
+  display: flex;
+  height: 100%;
+  min-width: 890px;
+  justify-content: center;
+  flex-direction: column;
+  background-color: orange;
+}
+
+.home_header {
+  display: flex;
+  width: 56px;
+  length: 890px;
+}
+
+.home_sidebar_right {
+  display: flex;
+  height: 100%;
+  min-width: 240px;
+  background-color: green;
+}
