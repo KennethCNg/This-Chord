@@ -14,7 +14,7 @@ export const requestDeleteMessage = messageid => dispatch => {
   return (
     MessageAPIUtil.destroyMessage(messageid)
       .then(() => dispatch(requestAllMessages()),
-    (err) => dispatch(receiveErrors(err.responseJSON)))
+      (err) => dispatch(receiveErrors(err.responseJSON)))
   );
 };
 
@@ -28,6 +28,6 @@ export const requestAllMessages = () => dispatch => {
 export const requestCreateMessage = (message) => dispatch => {
     return (
       MessageAPIUtil.createMessage(message)
-        .then(fetchedMessages => dispatch(receiveMessages(fetchedMessages)))
+        .then(fetchedMessage => dispatch(receiveMessages(fetchedMessage)))
     );
 };
