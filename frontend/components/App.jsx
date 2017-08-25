@@ -1,18 +1,19 @@
 import React from 'react';
-import GreetingContainer from './greeting_container';
+import HomeContainer from './home_container';
 import SessionFormContainer from './session_form_container';
-import { HashRouter, Route } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => {
   return (
       <div>
         <header>
         </header>
-
-        <Route path="/" exact component={GreetingContainer} />
-        <AuthRoute path="/login" exact component={SessionFormContainer} />
-        <AuthRoute path="/signup" exact component={SessionFormContainer} />
+          <Switch>
+            <AuthRoute path="/login" component={SessionFormContainer} />
+            <AuthRoute path="/signup" component={SessionFormContainer} />
+            <ProtectedRoute path="/" component={HomeContainer} />
+          </Switch>
       </div>
 );
 };
