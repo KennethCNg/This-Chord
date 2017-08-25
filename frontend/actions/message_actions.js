@@ -21,13 +21,15 @@ export const requestDeleteMessage = messageid => dispatch => {
 export const requestAllMessages = () => dispatch => {
     return (
       MessageAPIUtil.fetchAllMessages()
-        .then(fetchedMessages => dispatch(receiveMessages(fetchedMessages)))
+        .then(fetchedMessages => dispatch(receiveMessages(fetchedMessages)),
+        (err) => dispatch(receiveErrors(err.responseJSON)))
       );
 };
 
 export const requestCreateMessage = (message) => dispatch => {
     return (
       MessageAPIUtil.createMessage(message)
-        .then(fetchedMessage => dispatch(receiveMessages(fetchedMessage)))
+        .then(() => dispatch(requestAllMessages()),
+      (err) => dispatch(receiveErrors(err.responseJSON)))
     );
 };

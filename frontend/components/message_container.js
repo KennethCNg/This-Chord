@@ -6,8 +6,8 @@ import { selectMessages  } from './selector';
 const mapStateToProps = state => {
   return {
     messages: selectMessages(state),
-    currentUser: state.session.currentUser,
-    channel_id: 1
+    currentUserId: state.session.currentUser.id,
+    chatroomId: 1
   };
 };
 
