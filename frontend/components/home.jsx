@@ -25,7 +25,7 @@ class Home extends React.Component {
             Welcome {this.props.currentUser.username}
           </h1>
           <div>
-            <button onClick={ this.handleClick() }>LogOut</button>
+            <button onClick={ this.handleClick() }>Logout</button>
           </div>
           <div>
             <MessageContainer/>
