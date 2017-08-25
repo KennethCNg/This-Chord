@@ -1,21 +1,21 @@
-export const fetchMessages = () => {
+export const fetchAllMessages = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/messages',
+    url: '/api/messages',
   });
 };
 
 export const createMessage = (message) => {
   return $.ajax({
     method: 'POST',
-    url: 'api/messages',
+    url: '/api/messages',
     data: message
   });
 };
 
-export const destroyMessage = (id) => {
+export const destroyMessage = (messageid) => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/messages/${id}`,
+    url: `/api/messages/${messageid}`,
   });
 };
