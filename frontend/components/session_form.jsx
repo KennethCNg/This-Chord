@@ -157,7 +157,7 @@ guestLogin() {
                 FORGOT YOUR PASSWORD?
                 <div id='Lulchild' className="LulchildInactive">
                   <br/>
-                   ¯\_(ツ)_/¯
+                   Uhhhh... ¯\_(ツ)_/¯
                 </div>
               </div>
 
