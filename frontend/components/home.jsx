@@ -23,20 +23,30 @@ class Home extends React.Component {
       <div className="home_container">
 
 
+        {/* Left to Right */}
+        <div className="home_sidebar_left">
+          /*Placeholder for server nav-bar*/
+        </div>
 
-        <div className="home-sidebar-left"></div>
 
-        <div className="home-direct_messages"></div>
+        <div className="home_direct_messages">
+          /* Messages */
+          <button onClick={ this.handleClick() }>Logout</button>
+        </div>
 
+        {/* Messages */}
         <div className="home_message_container">
-          <h1 className="home_header">
+          <div className="home_header">
             Welcome {this.props.currentUser.username}
-            <button onClick={ this.handleClick() }>Logout</button>
-          </h1>
+          </div>
           <MessageContainer/>
         </div>
 
-        <div className="home-sidebar-right"></div>
+        <div className="home_sidebar_right">
+          /* Right Members nav-bar */
+        </div>
+        {/*Ends here*/}
+
 
       </div>
     );

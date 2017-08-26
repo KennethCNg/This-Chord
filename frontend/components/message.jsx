@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import ReactDOM from 'react-dom';
 
 class Message extends React.Component {
   constructor(props) {
@@ -11,10 +12,16 @@ class Message extends React.Component {
     this.renderMessages = this.renderMessages.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   componentDidMount() {
     this.props.requestAllMessages();
+    this.scrollToBottom();
+  }
+
+  componentWillReceiveProps() {
+    this.scrollToBottom();
   }
 
   handleClick(messageid) {
@@ -40,20 +47,37 @@ class Message extends React.Component {
     return e => this.setState({[prop]: e.currentTarget.value});
   }
 
+  scrollToBottom () {
+    const node = ReactDOM.findDOMNode(this.messagesEnd);
+    node.scrollIntoView({block: 'end', behavior: 'smooth'});
+  }
+
   renderMessages() {
     if (this.props.messages) {
       const messageList = this.props.messages.map((message, idx) => {
         return (
-          <li key={`message-${idx}`}>
-            { message.body }
-            <button onClick={ this.handleClick(message.id) }>Delete</button>
-          </li>
+          <div key= {`message-div-${idx}`}className="messages">
+
+            <li key={`message-li-${idx}`}  className="message">
+              <div key= {`message-body-${idx}`} className="message_body">
+                { message.body }
+              </div>
+
+              <div key= {`message-button-${idx}`} className="message_button">
+                <button onClick={ this.handleClick(message.id) }>Delete</button>
+            </div>
+            </li>
+
+          </div>
         );
       });
       return (
       <div>
-          <ul>
+          <ul className="messages_scroller">
             { messageList }
+            <div className="dummy_comment" ref={(el) => { this.messagesEnd = el; }}>
+              Here is the bottom
+            </div>
           </ul>
       </div>
       );

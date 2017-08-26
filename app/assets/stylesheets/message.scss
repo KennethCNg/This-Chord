@@ -14,3 +14,33 @@
 //   border-top: 1px, solid white;
 //   border-radius: 3px;
 // }
+
+.messages_scroller {
+  overflow: auto;
+  overflow: scroll;
+  height: 470px;
+}
+
+
+.messages {
+  display: flex;
+  margin: 10px;
+  margin-left: 20px;
+  overflow: hidden;
+  height: 40px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.message_body {
+  display: flex;
+}
+
+.message_button {
+  display: flex;
+}
+
+.home-sidebar-left {
+  border: 1px;
+  border-color: red;
+}
