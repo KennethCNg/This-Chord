@@ -55,5 +55,5 @@ Harmony is a web application inspired by Discord, the free voice and text chat a
 ### Bonus Features (TBD)
 
 - [ ] Landing Page
-- [ ] Friends (Online/ Offline)
+- [ ] Friends
 - [ ] Photo Upload functionality
