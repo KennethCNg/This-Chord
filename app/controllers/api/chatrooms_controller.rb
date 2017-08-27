@@ -7,12 +7,13 @@ class Api::ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
+    render :show
   end
 
   def create
     @chatroom = Chatroom.new(chatroom_params)
     if @chatroom.save
-      render :show
+      nil
     else
       render json: @chatroom.errors.full_messages, status: 422
     end
@@ -21,7 +22,6 @@ class Api::ChatroomsController < ApplicationController
   def destroy
     chat = Chatroom.find(params[:id])
     chat.destroy
-    render :show
   end
 
   def chatroom_params

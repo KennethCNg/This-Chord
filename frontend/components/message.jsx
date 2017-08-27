@@ -7,6 +7,7 @@ class Message extends React.Component {
     super(props);
     this.state = {
       body: "",
+      author_name: this.props.username,
     };
 
     this.renderMessages = this.renderMessages.bind(this);
@@ -57,7 +58,6 @@ class Message extends React.Component {
       const messageList = this.props.messages.map((message, idx) => {
         return (
           <div key= {`message-div-${idx}`}className="messages">
-
             <li key={`message-li-${idx}`}  className="message">
               <div key= {`message-body-${idx}`} className="message_body">
                 { message.body }
@@ -75,8 +75,8 @@ class Message extends React.Component {
       <div>
           <ul className="messages_scroller">
             { messageList }
-            <div className="dummy_comment" ref={(el) => { this.messagesEnd = el; }}>
-              Here is the bottom
+            <div className="dummy_message" ref={(el) => { this.messagesEnd = el; }}>
+                bottom
             </div>
           </ul>
       </div>

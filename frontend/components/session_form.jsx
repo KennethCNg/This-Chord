@@ -122,7 +122,6 @@ guestLogin() {
       <div className="auth-outer">
         <div className="auth-inner">
           <div className="session-form-container">
-
               <div className="session-img"></div>
             <form onSubmit={ this.handleSubmit } className="session-form-box">
               {this.header()}
