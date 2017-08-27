@@ -3,3 +3,6 @@
   Ruby understands false as a falsey value whereas Postgresql probably understands false
   as "null" or empty and therefore sees nothing in column and rejecting it at the database level.
   validates :private, inclusion: { in: [ true, false ] }
+
+
+2) Why does the chatroom render have the route instead of the App.jsx?

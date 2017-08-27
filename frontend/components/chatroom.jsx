@@ -1,40 +1,25 @@
 import React from 'react';
+import { Route  } from 'react-router-dom';
+import ChatroomIndexItem from './chatroom_index_item';
+import MessageContainer from './message_container';
+
 class Chatroom extends React.Component {
   constructor(props) {
     super(props);
 
-    this.renderChatrooms = this.renderChatrooms.bind(this);
   }
   componentDidMount() {
     this.props.requestAllChatrooms();
   }
 
-  renderChatrooms() {
-    if (this.props.chatrooms) {
-      const chatroomList = this.props.chatrooms.map((chatroom, idx) => {
-        return (
-          <div key={`chatroom-div-${idx}`}>
-            <li key={`chatroom-li-${idx}`}>
-              { chatroom.name }
-            </li>
-          </div>
-        );
-      });
-      return(
-        <div className="chatroomList">
-          <ul>
-            { chatroomList }
-          </ul>
-        </div>
-      );
-    }
-  }
-
   render() {
     return (
       <div>
-        {this.renderChatrooms()}
-        test3
+        <ul>
+          { this.props.chatrooms.map ( chatroom =>
+            <ChatroomIndexItem key={chatroom.id} chatroom={chatroom} />)}
+        </ul>
+          <Route path="/api/chatrooms/chatroomsId" component={MessageContainer} />
       </div>
     );
   }

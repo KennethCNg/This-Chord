@@ -3,12 +3,12 @@ t// .message_form {
 // }
 //
 
-.outer_message_scroller {
-  display: flex;
-  overflow: scroll;
-  height: 670px;
-  align-items: stretch;
-}
+// .outer_message_scroller {
+//   display: flex;
+//   overflow: scroll;
+//   height: 670px;
+//   align-items: stretch;
+// }
 
 .inner_messages_scroller {
   display: flex;
@@ -16,6 +16,7 @@ t// .message_form {
   overflow: scroll;
   background-color: #36393e;
   height: 100%;
+  min-height: 570px;
   width: 100%;
   font-family: 'Open Sans', sans-serif;
   // flex-grow: 1;

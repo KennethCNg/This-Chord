@@ -17,7 +17,7 @@
 
 .home_inner_sidebar_left {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: column;
   height: 100%;
   min-width: 240px;
   background-color: #2C2F33;
@@ -25,7 +25,7 @@
 
 .home_message_container {
   display: flex;
-  height: 522px;
+  height: 100%;
   min-width: 890px;
   flex-wrap: wrap;
   background-color: #36393f;
