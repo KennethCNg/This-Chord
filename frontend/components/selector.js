@@ -5,3 +5,9 @@ export const selectMessages = (state) => {
     values(state.entities.messages)
   );
 };
+
+export const selectChatrooms = (state) => {
+  return (
+    values(state.entities.chatrooms)
+  );
+};

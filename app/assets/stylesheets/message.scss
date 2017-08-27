@@ -1,52 +1,108 @@
-// .message_form {
+t// .message_form {
 //   width: 100%;
 // }
 //
-// .message_input {
-//   display: flex;
-//   color:  white;
-//   background-color: #99AAB5;
-//   // border-width: 20px;
-//   border-color: #36393f;
-//   border-style: solid;
-//   width: 100%;
-//   height: 100%;
-//   border-top: 1px, solid white;
-//   border-radius: 3px;
-// }
 
-.messages_scroller {
-  overflow: auto;
+.outer_message_scroller {
+  display: flex;
   overflow: scroll;
-  height: 470px;
+  height: 670px;
+  align-items: stretch;
+}
+
+.inner_messages_scroller {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  background-color: #36393e;
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  // flex-grow: 1;
 }
 
 
 .messages {
-  display: flex;
-  margin: 10px;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-left: 20px;
-  overflow: hidden;
-  height: 40px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  margin-right: 6px;
+  border-bottom: 1px solid hsla(0,0%,100%,.04);
+  // white-space: pre-wrap;
+  // word-wrap: break-word;
+
 }
 
 .dummy_message {
-  color: #36393f;
-  background-color: #36393f;
+  // display:flex;
+  // color: #36393f;
+  // background-color: #36393f;
+  // font-size: 40px;
 }
 
+// .icon {
+//   display: flex;
+//   height: 40px;
+//   width: 40px;
+// }
+
+.message_author_date {
+  display: flex;
+  min-width: 100%;
+  align-items: baseline;
+}
+
+.message_author {
+  display: flex;
+  color: white;
+  font-family: 'Mukta Mahee', sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.message_date {
+  display: flex;
+  color: white;
+  opacity: .2;
+  margin-left: 6px;
+  font-weight: 400;
+  font-size: 0.70rem;
+}
+
+.message_body_button {
+  display: flex;
+  justify-content: space-between;
+  width: 770px;
+  margin-left: 40;
+}
 
 .message_body {
   display: flex;
+  color: white;
+  opacity: .7;
+  font-size: .9375rem;
+  line-height: 1.1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-top: 6px;
 }
 
 .message_button {
   display: flex;
 }
 
-.home-sidebar-left {
-  border: 1px;
-  border-color: red;
+.message_input {
+  display: flex;
+  color: white;
+  background-color: rgba(255,255,255,0.06);
+  border-color: #36393f;
+  border-radius: 5px;
+  border-style: solid;
+  margin: 10px;
+  width: 90%;
+  height: 10%;
+  padding: 10px;
+  padding-left: 47px;
+  font-size: 14px;
 }

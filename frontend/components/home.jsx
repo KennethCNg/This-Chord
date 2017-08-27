@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from  'react-router-dom';
 import MessageContainer from './message_container';
+import ChatroomContainer from './chatroom_container';
 
 class Home extends React.Component {
   constructor(props) {
@@ -24,20 +25,24 @@ class Home extends React.Component {
 
 
         {/* Left to Right */}
-        <div className="home_sidebar_left">
-          /*Placeholder for server nav-bar*/
+        <div className="home_outer_sidebar_left">
+
         </div>
 
 
-        <div className="home_direct_messages">
-          /* Messages */
-          <button onClick={ this.handleClick() }>Logout</button>
+        <div className="home_inner_sidebar_left">
+          <ChatroomContainer/>
+          <div>
+            <button onClick={ this.handleClick() }>Logout</button>
+          </div>
         </div>
 
         {/* Messages */}
         <div className="home_message_container">
           <div className="home_header">
-            Welcome {this.props.currentUser.username}
+            <div className="welcome">
+              Welcome {this.props.currentUser.username}
+            </div>
           </div>
           <MessageContainer/>
         </div>

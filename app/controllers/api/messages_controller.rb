@@ -19,6 +19,6 @@ class Api::MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:body, :author_id, :chatroom_id)
+      params.require(:message).permit(:body, :author_name, :author_id, :chatroom_id)
     end
 end
