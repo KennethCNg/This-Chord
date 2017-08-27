@@ -1,5 +1,4 @@
 import { RECEIVE_MESSAGES, DELETE_MESSAGE } from '../actions/message_actions';
-import { RECEIVE_ERRORS } from '../actions/ui_actions';
 import merge from 'lodash/merge';
 
 const messageReducer = (state = {}, action) => {

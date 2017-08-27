@@ -7,7 +7,6 @@ class Api::ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
-    render :show
   end
 
   def create
