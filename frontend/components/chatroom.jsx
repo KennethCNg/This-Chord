@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route  } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import ChatroomIndexItem from './chatroom_index_item';
 import MessageContainer from './message_container';
 
@@ -19,7 +19,7 @@ class Chatroom extends React.Component {
           { this.props.chatrooms.map ( chatroom =>
             <ChatroomIndexItem key={chatroom.id} chatroom={chatroom} />)}
         </ul>
-          <Route path="/api/chatrooms/chatroomsId" component={MessageContainer} />
+
       </div>
     );
   }
@@ -29,4 +29,4 @@ class Chatroom extends React.Component {
 
 
 
-export default Chatroom;
+export default withRouter(Chatroom);

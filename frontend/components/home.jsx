@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from  'react-router-dom';
+import { Route, Link } from  'react-router-dom';
 import MessageContainer from './message_container';
 import ChatroomContainer from './chatroom_container';
 
@@ -44,7 +44,7 @@ class Home extends React.Component {
               Welcome {this.props.currentUser.username}
             </div>
           </div>
-          <MessageContainer/>
+          <Route path="/chatrooms/:chatroomsId" component={ MessageContainer } />
         </div>
 
         <div className="home_sidebar_right">

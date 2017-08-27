@@ -3,11 +3,11 @@ import Message from './message';
 import { requestCreateMessage, requestAllMessages, requestDeleteMessage } from '../actions/message_actions';
 import { selectMessages  } from './selector';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     messages: selectMessages(state),
     currentUser: state.session.currentUser,
-    chatroomId: 1
+
   };
 };
 
