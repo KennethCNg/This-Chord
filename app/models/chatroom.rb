@@ -4,14 +4,15 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string           not null
-#  private    :boolean          not null
+#  private    :boolean          default(FALSE), not null
 #  admin_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 class Chatroom < ApplicationRecord
-  validates :name, :private, :admin_id, presence: true
+  validates :name, :admin_id, presence: true
+  validates :private, inclusion: { in: [ true, false ] }
   validates :name, uniqueness: true
   validates :name, length: {minimum: 2, maximum: 15}
 
