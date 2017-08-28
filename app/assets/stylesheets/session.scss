@@ -1,14 +1,17 @@
 .auth-outer {
   display: flex;
   background-image: image-url("dota-2-wallpaper-4.jpg");
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  position: relative;
   height: 100vh;
-  width: 1445px;
 }
 
  .auth-inner {
    display: flex;
-   justify-content: center;
-   width: 1445px;
+  flex-direction: row;
+  border-radius: 3px;
  }
 
  .session-form-box {
