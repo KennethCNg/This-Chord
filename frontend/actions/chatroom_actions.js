@@ -22,7 +22,7 @@ export const requestAllChatrooms = () => dispatch => {
 export const requestChatroomMessages = (chatroomId) => dispatch => {
   return (
     ChatroomAPIUtil.fetchChatroomMessages(chatroomId)
-    .then(fetchedMessages => dispatch(receiveMessages(fetchedMessages)),
+    .then(({messages}) => dispatch(receiveMessages(messages)),
   (err) => dispatch(receiveErrors(err.responseJSON)))
   );
 };

@@ -39,11 +39,6 @@ class Home extends React.Component {
 
         {/* Messages */}
         <div className="home_message_container">
-          <div className="home_header">
-            <div className="welcome">
-              Welcome {this.props.currentUser.username}
-            </div>
-          </div>
           <Route path="/chatrooms/:chatroomsId" component={ MessageContainer } />
         </div>
 

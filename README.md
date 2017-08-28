@@ -43,7 +43,7 @@ Harmony is a web application inspired by Discord, the free voice and text chat a
 
 **Objective:** Implement working Chatrooms
 
-### Phase 4: Working Multi-person Direct Messages page && DM's (1 Day)
+### Phase 4: Working Multi-person Direct Messages page && Messages (1 Day)
 
 **Objective:** Implement DM
 

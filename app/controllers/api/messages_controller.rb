@@ -15,7 +15,11 @@ class Api::MessagesController < ApplicationController
 
     def destroy
       @message = Message.find(params[:id])
-      @message.destroy
+       if @message.destroy
+         render :show
+       else
+         render json: @message.errors.full_messages, status: 422
+       end
     end
 
     def message_params

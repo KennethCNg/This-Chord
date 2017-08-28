@@ -4,7 +4,6 @@ import { requestAllChatrooms } from '../actions/chatroom_actions';
 import { selectChatrooms } from './selector';
 
 const mapStateToProps = state => {
-
   return {
     chatrooms: selectChatrooms(state),
   };

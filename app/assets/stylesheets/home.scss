@@ -2,32 +2,35 @@
 .home_container {
   display: flex;
   height: 100vh;
-  // background-image: image-url("dota-2-wallpaper-4.jpg");
+  justify-content: center;
   flex-direction: row;
 }
 
 
 .home_outer_sidebar_left {
   display: flex;
+  flex-direction: column;
   height: 100%;
-  min-width: 70px;
-
+  width: 240px;
   background-color: #1e2124;
+  padding: 18px 0px 18px 10px;
+  min-width: 60px;
+  max-width: 60px;
 }
 
 .home_inner_sidebar_left {
   display: flex;
   flex-wrap: column;
   height: 100%;
-  min-width: 240px;
+  width: 240px;
   background-color: #2C2F33;
 }
 
 .home_message_container {
   display: flex;
   height: 100%;
-  min-width: 890px;
-  flex-wrap: wrap;
+  width: 94%;
+  flex-direction: column;
   background-color: #36393f;
   align-content: flex-end;
 }
@@ -44,6 +47,7 @@
 
 .welcome {
   display: flex;
+  position: fixed;
   margin-left: 11px;
   border: 1px;
   padding: 2px 8px;

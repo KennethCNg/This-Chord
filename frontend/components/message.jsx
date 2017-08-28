@@ -19,12 +19,14 @@ class Message extends React.Component {
   }
 
   componentDidMount() {
-    const chatroomId = this.props.ownProps.location.pathname.slice(11);
-    this.props.requestMessages(chatroomId);
+    this.props.requestMessages(this.state.chatroom_id);
     this.scrollToBottom();
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.chatroomsId !== nextProps.match.params.chatroomsId) {
+      this.props.requestMessages(nextProps.match.params.chatroomsId);
+    }
     this.scrollToBottom();
   }
 
@@ -54,12 +56,13 @@ class Message extends React.Component {
 
   scrollToBottom () {
     const node = ReactDOM.findDOMNode(this.messagesEnd);
-    node.scrollIntoView({block: 'end', behavior: 'smooth'});
+    if (node) {
+      node.scrollIntoView({block: 'end', behavior: 'smooth'});
+    }
   }
 
   renderMessages() {
     if (this.props.messages.length > 0) {
-      debugger;
       const messageList = this.props.messages.map((message, idx) => {
         return (
           <div key={`message-div-${idx}`} className="messages">
@@ -68,20 +71,20 @@ class Message extends React.Component {
               <div key={`message-author-date-${idx}`} className="message_author_date">
                 <div className="icon">Icon</div>
                 <div key={`message-author-${idx}`} className="message_author">
-                  { message[idx].author_name }
+                  { message.author_name }
                 </div>
                 <div key={`message-date-${idx}`} className="message_date">
-                  { message[idx].created_at }
+                  { message.created_at }
                 </div>
               </div>
 
               <div key={`message-body-button-${idx}`} className="message_body_button">
                 <div key={`message-body-${idx}`} className="message_body">
-                  { message[idx].body }
+                  { message.body }
                 </div>
 
                 <div key= {`message-button-${idx}`} className="message_button">
-                  <button onClick={ this.handleClick(message[idx].id) }>Delete</button>
+                  <button onClick={ this.handleClick(message.id) }>Delete</button>
                 </div>
               </div>
             </li>
@@ -90,13 +93,18 @@ class Message extends React.Component {
         );
       });
       return (
-        <div className="outer_message_scroller">
-          <ul className="inner_messages_scroller">
+
+          <ul className="messages_scroller">
             { messageList }
             <div className="dummy_message" ref={(el) => { this.messagesEnd = el; }}>
-              dummy
+
             </div>
           </ul>
+
+      );
+    } else {
+      return (
+        <div className="noComments">
         </div>
       );
     }
@@ -105,19 +113,20 @@ class Message extends React.Component {
   render() {
     return (
       <div>
-
-          <div>
-            {this.renderMessages()}
+        <div className="home_header">
+          <div className="welcome">
+            Welcome {this.props.currentUser.username}
           </div>
+        </div>
+        {this.renderMessages()}
 
-            <form className='message_form' onSubmit={this.handleSubmit}>
-              <div>
-                <div className="message_input_placeholder"></div>
-                <input placeholder="Hallo" className="message_input" type='text'
+        <div className="message_container">
+          <form className='message_form' onSubmit={this.handleSubmit}>
+              <input placeholder="Hallo" className="message_input" type='text'
                 value={ this.state.body }
                 onChange={this.update('body')} />
-              </div>
           </form>
+        </div>
 
       </div>
     );

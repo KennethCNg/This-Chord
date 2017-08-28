@@ -14,7 +14,7 @@ export const receiveMessages = messages => {
 export const requestDeleteMessage = messageid => dispatch => {
   return (
     MessageAPIUtil.destroyMessage(messageid)
-      .then(() => dispatch(requestChatroomMessages()),
+      .then((deletedMessage) => dispatch(requestChatroomMessages(deletedMessage.chatroom_id)),
       (err) => dispatch(receiveErrors(err.responseJSON)))
   );
 };
@@ -23,7 +23,7 @@ export const requestDeleteMessage = messageid => dispatch => {
 export const requestCreateMessage = (message) => dispatch => {
     return (
       MessageAPIUtil.createMessage(message)
-        .then((createdMessages) => dispatch(receiveMessages(createdMessages)),
+        .then((createdMessages) => dispatch(requestChatroomMessages(createdMessages.chatroom_id)),
       (err) => dispatch(receiveErrors(err.responseJSON)))
     );
 };
