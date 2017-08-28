@@ -84,7 +84,7 @@ class Message extends React.Component {
                 </div>
 
                 <div key= {`message-button-${idx}`} className="message_button">
-                  <button onClick={ this.handleClick(message.id) }>Delete</button>
+                  <button className="message_delete_button" onClick={ this.handleClick(message.id) }>Delete</button>
                 </div>
               </div>
             </li>
@@ -122,7 +122,7 @@ class Message extends React.Component {
 
         <div className="message_container">
           <form className='message_form' onSubmit={this.handleSubmit}>
-              <input placeholder="Hallo" className="message_input" type='text'
+              <input placeholder="hallo" className="message_input" type='text'
                 value={ this.state.body }
                 onChange={this.update('body')} />
           </form>

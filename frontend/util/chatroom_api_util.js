@@ -8,8 +8,7 @@ export const fetchAllChatrooms = () => {
 export const fetchChatroomMessages = chatroomId => {
   return $.ajax({
     method: 'GET',
-    url: `/api/chatrooms/${chatroomId}`,
-    data: chatroomId,
+    url: `/api/chatrooms/${chatroomId}`
   });
 };
 

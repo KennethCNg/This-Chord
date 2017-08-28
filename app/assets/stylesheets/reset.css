@@ -56,4 +56,8 @@ a {
 a:visted {
 	text-decoration: none;
 }
-	
+
+button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
