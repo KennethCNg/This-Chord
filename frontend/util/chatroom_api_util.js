@@ -21,9 +21,9 @@ export const createChatroom = (chatroom) => {
   });
 };
 
-export const destroyChatroom = (chatroomid) => {
+export const destroyChatroom = (chatroomId) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/chatroom/${chatroomid}`,
+    url: `/api/chatrooms/${chatroomId}`,
   });
 };

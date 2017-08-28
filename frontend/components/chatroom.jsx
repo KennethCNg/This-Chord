@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ChatroomIndexItem from './chatroom_index_item';
+import ChatroomIndex from './chatroom_index';
 import MessageContainer from './message_container';
 
 class Chatroom extends React.Component {
@@ -15,11 +15,7 @@ class Chatroom extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          { this.props.chatrooms.map ( chatroom =>
-            <ChatroomIndexItem key={chatroom.id} chatroom={chatroom} />)}
-        </ul>
-
+        <ChatroomIndex chatrooms={this.props.chatrooms}/>
       </div>
     );
   }

@@ -26,3 +26,19 @@ export const requestChatroomMessages = (chatroomId) => dispatch => {
   (err) => dispatch(receiveErrors(err.responseJSON)))
   );
 };
+
+export const requestCreateChatrooms = chatroom => dispatch => {
+  return (
+    ChatroomAPIUtil.createChatroom(chatroom)
+    .then(() => dispatch(requestAllChatrooms()),
+  (err) => dispatch(receiveErrors(err.responseJSON)))
+  );
+};
+
+export const requestDestroyChatroom = chatroomId => dispatch => {
+  return (
+    ChatroomAPIUtil.destroyChatroom(chatroomId)
+    .then(() => dispatch(requestAllChatrooms()),
+  (err) => dispatch(receiveErrors(err.responseJSON)))
+  );
+};

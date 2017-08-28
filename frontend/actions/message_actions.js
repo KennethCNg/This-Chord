@@ -27,11 +27,3 @@ export const requestCreateMessage = (message) => dispatch => {
       (err) => dispatch(receiveErrors(err.responseJSON)))
     );
 };
-
-// export const requestAllMessages = () => dispatch => {
-//     return (
-//       MessageAPIUtil.fetchAllMessages()
-//         .then(fetchedMessages => dispatch(receiveMessages(fetchedMessages)),
-//         (err) => dispatch(receiveErrors(err.responseJSON)))
-//       );
-// };

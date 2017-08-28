@@ -20,8 +20,8 @@ class Api::ChatroomsController < ApplicationController
   end
 
   def destroy
-    chat = Chatroom.find(params[:id])
-    chat.destroy
+    chatroom = Chatroom.find(params[:id])
+    chatroom.destroy
   end
 
   def chatroom_params
