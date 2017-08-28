@@ -5,6 +5,14 @@ export const fetchAllChatrooms = () => {
   });
 };
 
+export const fetchChatroomMessages = chatroomId => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/chatrooms/${chatroomId}`,
+    data: chatroomId,
+  });
+};
+
 export const createChatroom = (chatroom) => {
   return $.ajax({
     method: 'POST',

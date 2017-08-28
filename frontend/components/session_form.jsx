@@ -83,7 +83,6 @@ class SessionForm extends React.Component {
         <ul className="session-errors">
           { errorList }
         </ul>
-
         );
     }
   }

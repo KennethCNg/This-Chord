@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
 import Message from './message';
-import { requestCreateMessage, requestAllMessages, requestDeleteMessage } from '../actions/message_actions';
+import { requestCreateMessage, requestDeleteMessage } from '../actions/message_actions';
+import { requestChatroomMessages } from '../actions/chatroom_actions';
 import { selectMessages  } from './selector';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     messages: selectMessages(state),
     currentUser: state.session.currentUser,
-
+    ownProps,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestAllMessages: () => dispatch(requestAllMessages()),
+    requestMessages: (chatroomId) => dispatch(requestChatroomMessages(chatroomId)),
     requestDeleteMessage: (messageid) => dispatch(requestDeleteMessage(messageid)),
     requestCreateMessage: (message) => dispatch(requestCreateMessage(message)),
   };

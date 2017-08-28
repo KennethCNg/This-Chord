@@ -7,7 +7,9 @@ class Message extends React.Component {
     super(props);
     this.state = {
       body: "",
-      author_name: this.props.username,
+      author_name: this.props.currentUser.username,
+      author_id: this.props.currentUser.id,
+      chatroom_id: this.props.ownProps.location.pathname.slice(11),
     };
 
     this.renderMessages = this.renderMessages.bind(this);
@@ -17,7 +19,8 @@ class Message extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestAllMessages();
+    const chatroomId = this.props.ownProps.location.pathname.slice(11);
+    this.props.requestMessages(chatroomId);
     this.scrollToBottom();
   }
 
@@ -37,8 +40,8 @@ class Message extends React.Component {
       var placeholder = {
         body: this.state.body,
         author_id: this.props.currentUser.id,
-        chatroom_id: this.props.chatroomId,
         author_name: this.props.currentUser.username,
+        chatroom_id: this.props.ownProps.location.pathname.slice(11),
       };
       this.state.body = "";
       const message = merge({}, placeholder);
@@ -55,7 +58,8 @@ class Message extends React.Component {
   }
 
   renderMessages() {
-    if (this.props.messages) {
+    if (this.props.messages.length > 0) {
+      debugger;
       const messageList = this.props.messages.map((message, idx) => {
         return (
           <div key={`message-div-${idx}`} className="messages">
@@ -64,20 +68,20 @@ class Message extends React.Component {
               <div key={`message-author-date-${idx}`} className="message_author_date">
                 <div className="icon">Icon</div>
                 <div key={`message-author-${idx}`} className="message_author">
-                  { message.author_name }
+                  { message[idx].author_name }
                 </div>
                 <div key={`message-date-${idx}`} className="message_date">
-                  { message.created_at }
+                  { message[idx].created_at }
                 </div>
               </div>
 
               <div key={`message-body-button-${idx}`} className="message_body_button">
                 <div key={`message-body-${idx}`} className="message_body">
-                  { message.body }
+                  { message[idx].body }
                 </div>
 
                 <div key= {`message-button-${idx}`} className="message_button">
-                  <button onClick={ this.handleClick(message.id) }>Delete</button>
+                  <button onClick={ this.handleClick(message[idx].id) }>Delete</button>
                 </div>
               </div>
             </li>
@@ -86,14 +90,14 @@ class Message extends React.Component {
         );
       });
       return (
-      <div className="outer_message_scroller">
+        <div className="outer_message_scroller">
           <ul className="inner_messages_scroller">
             { messageList }
             <div className="dummy_message" ref={(el) => { this.messagesEnd = el; }}>
-                {/*bottom*/}
+              dummy
             </div>
           </ul>
-      </div>
+        </div>
       );
     }
   }
@@ -102,20 +106,17 @@ class Message extends React.Component {
     return (
       <div>
 
-
           <div>
             {this.renderMessages()}
           </div>
 
             <form className='message_form' onSubmit={this.handleSubmit}>
-
               <div>
                 <div className="message_input_placeholder"></div>
                 <input placeholder="Hallo" className="message_input" type='text'
                 value={ this.state.body }
                 onChange={this.update('body')} />
               </div>
-
           </form>
 
       </div>
