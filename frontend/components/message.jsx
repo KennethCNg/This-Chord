@@ -47,7 +47,7 @@ class Message extends React.Component {
       };
       this.state.body = "";
       const message = merge({}, placeholder);
-      this.props.requestCreateMessage( {message} );
+      this.props.requestCreateMessage( { message } );
     }
 
   update(prop) {

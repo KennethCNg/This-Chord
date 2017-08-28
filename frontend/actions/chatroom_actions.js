@@ -27,7 +27,7 @@ export const requestChatroomMessages = (chatroomId) => dispatch => {
   );
 };
 
-export const requestCreateChatrooms = chatroom => dispatch => {
+export const requestCreateChatroom = chatroom => dispatch => {
   return (
     ChatroomAPIUtil.createChatroom(chatroom)
     .then(() => dispatch(requestAllChatrooms()),

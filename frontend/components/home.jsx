@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link } from  'react-router-dom';
 import MessageContainer from './message_container';
 import ChatroomContainer from './chatroom_container';
+import ChatroomModal from './chatroom_modal';
 
 class Home extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Home extends React.Component {
 
 
         <div className="home_inner_sidebar_left">
-          <ChatroomContainer/>
+          <ChatroomContainer />
           <div>
             <button onClick={ this.handleClick() }>Logout</button>
           </div>
@@ -39,6 +40,7 @@ class Home extends React.Component {
 
         {/* Messages */}
         <div className="home_message_container">
+          <ChatroomModal/>
           <Route path="/chatrooms/:chatroomsId" component={ MessageContainer } />
         </div>
 
