@@ -60,7 +60,28 @@
   min-width: 240px;
   background-color: #2f3136;
 }
+.user_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.username {
+color: white;
+overflow: hidden;
+}
+
+.userid {
+color: white;
+font-size: 10px;
+opacity: 0.55;
+}
 
 .logout {
-  
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  height: 52px;
+  align-items: center;
+  background-color: #272a2d;
 }

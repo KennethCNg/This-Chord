@@ -34,7 +34,15 @@ class Home extends React.Component {
         <div className="home_inner_sidebar_left">
           <ChatroomContainer />
           <div className="logout">
-            <button onClick={ this.handleClick() }>Logout</button>
+            <div className="user_info">
+              <span className="username">
+                { this.props.currentUser.username }
+              </span>
+              <span className="userid">
+                #{ this.props.currentUser.id }
+              </span>
+            </div>
+            <button className="logout_button" onClick={ this.handleClick() }>Logout</button>
           </div>
         </div>
 

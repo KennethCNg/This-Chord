@@ -27,7 +27,10 @@ class Chatroom extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={ this.handleClick }>+</button>
+        <div>
+          <button onClick={ this.handleClick }>+</button>
+        </div>
+
         <ChatroomIndex chatrooms={this.props.chatrooms} />
         <ChatroomModal
           isOpen={this.state.modalOpen}

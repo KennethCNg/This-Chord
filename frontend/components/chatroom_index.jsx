@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter} from 'react-router';
 import { Link } from 'react-router-dom';
 import { Chatroom } from './chatroom';
 import { selectChatrooms  } from './selector';
@@ -10,6 +11,7 @@ class ChatroomIndex extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.renderInvite = this.renderInvite.bind(this);
   }
 
 
@@ -18,6 +20,27 @@ class ChatroomIndex extends React.Component {
       e.preventDefault();
       this.props.requestDestroyChatroom(chatroomId);
     };
+  }
+
+  renderInvite() {
+    if (this.props.location.pathname !== "/") {
+      return (
+        <div className="share">
+          <div className="share_invite">
+            Invite Your Friends!
+          </div>
+          <div className="share_link">
+            this-chord.herokuapp.com:
+            <br/>
+            { this.props.location.pathname }
+          </div>
+        </div>
+    );
+    } else {
+        return (
+          null
+        );
+      }
   }
 
   render() {
@@ -35,9 +58,13 @@ class ChatroomIndex extends React.Component {
             );
           });
           return (
-            <ul className="chatroom_index">
-              { chatroomIndexItems }
-            </ul>
+            <div>
+
+              <ul className="chatroom_index">
+                { this.renderInvite() }
+                { chatroomIndexItems }
+              </ul>
+            </div>
           );
         } else {
           return (
@@ -48,9 +75,10 @@ class ChatroomIndex extends React.Component {
 
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     chatrooms: selectChatrooms(state),
+    ownProps,
   };
 };
 
@@ -60,7 +88,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChatroomIndex);
+)(ChatroomIndex));

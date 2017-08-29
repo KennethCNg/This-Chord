@@ -5,7 +5,7 @@
 .chatroom_index {
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
+  height: calc(100vh - 97px);
 }
 
 .chatroom_index_item {
@@ -46,6 +46,27 @@
   display: flex;
   justify-content: center;
   align-self: center;
+}
+.share {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #414347;
+  border-radius: 3px;
+}
+
+.share_invite {
+  color: #7289DA;
+
+}
+
+.share_link {
+  border-color: white;
+  color: #99AAB5;
+  word-wrap: break-word;
 }
 
 .chatroom_delete_button {
