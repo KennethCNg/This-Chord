@@ -66,6 +66,18 @@ class ChatroomIndex extends React.Component {
 
               <ul className="chatroom_index">
                 { this.renderInvite() }
+                
+                <div className="channel_text_and_button">
+                  <div className="channel_text">
+                    CHANNELS
+                  </div>
+                  <div>
+                    <button onClick={ this.handleClick } className="channel_button">
+                      +
+                    </button>
+                  </div>
+                </div>
+
                 { chatroomIndexItems }
               </ul>
             </div>

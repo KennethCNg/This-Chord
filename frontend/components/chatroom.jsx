@@ -27,10 +27,12 @@ class Chatroom extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <button onClick={ this.handleClick }>+</button>
-        </div>
+        <div className="thischord" />
+      <div>
+
         <ChatroomIndex chatrooms={this.props.chatrooms} currentUser={this.props.currentUser}/>
+      </div>
+
         <ChatroomModal
           isOpen={this.state.modalOpen}
           handleClose={this.handleClick}

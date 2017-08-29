@@ -6,10 +6,48 @@
   length: 100%;
 }
 
+.thischord {
+  display: flex;
+  background-image: image-url("Discord-Logo2.png");
+  background-size: contain;
+  height: 90px;
+  filter: invert(100%);
+}
+
+.channel_text_and_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.channel_text {
+  color: white;
+  font-family: 'Mukta Mahee', sans-serif;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.channel_button {
+  height: 20px;
+  width: 20px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: #2C2F33;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-10%);
+}
+
 .chatroom_index {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 97px);
+  height: calc(100vh - 187px);
   overflow-y: scroll;
 }
 
