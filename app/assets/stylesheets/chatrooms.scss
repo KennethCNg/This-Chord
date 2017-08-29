@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.chatroomList {
+  length: 100%;
+}
+
 .chatroom_index {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 97px);
+  overflow-y: scroll;
 }
 
 .chatroom_index_item {
@@ -47,6 +52,22 @@
   justify-content: center;
   align-self: center;
 }
+
+.chatroom_delete_button {
+  height: 20px;
+  width: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #2C2F33;
+  border: none;
+  cursor: pointer;
+}
+
+.chatroom_delete_button:hover {
+  color: red;
+  opacity: 1;
+}
+
 .share {
   display: flex;
   flex-direction: column;
@@ -67,8 +88,4 @@
   border-color: white;
   color: #99AAB5;
   word-wrap: break-word;
-}
-
-.chatroom_delete_button {
-  border: none;
 }

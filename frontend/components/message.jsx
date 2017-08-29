@@ -1,6 +1,8 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import ReactDOM from 'react-dom';
+import { isEmptyObject } from '../helpers/helpers.js';
+
 
 class Message extends React.Component {
   constructor(props) {
@@ -9,13 +11,15 @@ class Message extends React.Component {
       body: "",
       author_name: this.props.currentUser.username,
       author_id: this.props.currentUser.id,
-      chatroom_id: this.props.ownProps.location.pathname.slice(11),
+      chatroom_id: this.props.location.pathname.slice(11),
     };
 
     this.renderMessages = this.renderMessages.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.scrollToBottom = this.scrollToBottom.bind(this);
+    this.renderInput = this.renderInput.bind(this);
+    this.renderHeader = this.renderHeader.bind(this);
   }
 
   componentDidMount() {
@@ -43,7 +47,7 @@ class Message extends React.Component {
         body: this.state.body,
         author_id: this.props.currentUser.id,
         author_name: this.props.currentUser.username,
-        chatroom_id: this.props.ownProps.location.pathname.slice(11),
+        chatroom_id: this.props.location.pathname.slice(11),
       };
       this.state.body = "";
       const message = merge({}, placeholder);
@@ -63,6 +67,8 @@ class Message extends React.Component {
 
   renderMessages() {
     if (this.props.messages.length > 0) {
+      // this.renderMessages();
+      // this.renderInput();
       const messageList = this.props.messages.map((message, idx) => {
         return (
           <div key={`message-div-${idx}`} className="messages">
@@ -86,12 +92,14 @@ class Message extends React.Component {
                     </div>
 
                     <div key= {`message-button-${idx}`} className="message_button">
-                      <button className="message_delete_button" onClick={ this.handleClick(message.id) }>Delete</button>
+
                     </div>
                   </div>
                 </li>
               </div>
-
+              <button className="message_delete_button" onClick={ this.handleClick(message.id) }>
+                X
+              </button>
               </div>
             </div>
         );
@@ -114,21 +122,41 @@ class Message extends React.Component {
     }
   }
 
+  renderInput() {
+    //line 122 is checking if this.props.chatrooms is an empty
+    if ( isEmptyObject(this.props.chatrooms) ) {
+      const msg = "Message #".concat(this.props.chatrooms[this.props.location.pathname.slice(11)].name);
+      return (
+        <input placeholder={msg} className="message_input" type='text'
+        value={ this.state.body }
+        onChange={this.update('body')} />
+      );
+    } else {
+      null;
+    }
+  }
+
+  renderHeader(nextProps) {
+    if ( isEmptyObject(this.props.chatrooms) ) {
+      return (
+        <div className="welcome">
+          # { this.props.chatrooms[this.props.location.pathname.slice(11)].name }
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div>
         <div className="home_header">
-          <div className="welcome">
-            Welcome {this.props.currentUser.username}
-          </div>
+          { this.renderHeader() }
         </div>
-        {this.renderMessages()}
+        { this.renderMessages() }
 
         <div className="message_container">
           <form className='message_form' onSubmit={this.handleSubmit}>
-              <input placeholder="hallo" className="message_input" type='text'
-                value={ this.state.body }
-                onChange={this.update('body')} />
+            { this.renderInput() }
           </form>
         </div>
 

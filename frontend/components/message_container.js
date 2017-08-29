@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     messages: selectMessages(state),
     currentUser: state.session.currentUser,
-    ownProps,
+    chatrooms: state.entities.chatrooms,
   };
 };
 

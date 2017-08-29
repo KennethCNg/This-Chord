@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 240px;
+  width: 6.875em;
   background-color: #1e2124;
   // padding: 18px 0px 18px 10px;
   min-width: 60px;
@@ -22,14 +22,14 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 240px;
+  min-width: 15em;
   background-color: #2C2F33;
 }
 
 .home_message_container {
   display: flex;
   height: 100vh;
-  width: 94%;
+  width: 90%;
   flex-direction: column;
   background-color: #36393f;
   align-content: flex-end;
@@ -57,14 +57,33 @@
 .home_sidebar_right {
   display: flex;
   height: 100vh;
-  min-width: 240px;
+  min-width: 15em;
   background-color: #2f3136;
 }
+
+.username_and_id_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .user_info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
+
+.icon_2 {
+  display: flex;
+  width: 38px;
+  height: 42px;
+  background-image: image-url("discord_icon_2.png");
+  padding: 0px 5px;
+  // transform: translateY(-6%);
+  background-repeat: no-repeat;
+  background-color: #272a2d;
+}
+
 
 .username {
 color: white;
@@ -84,4 +103,13 @@ opacity: 0.55;
   height: 52px;
   align-items: center;
   background-color: #272a2d;
+}
+
+.logout_button {
+  border: none;
+  background-color: #272a2d;
+  color: #C80000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  cursor: pointer;
 }

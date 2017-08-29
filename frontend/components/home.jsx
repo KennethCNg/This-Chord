@@ -35,12 +35,17 @@ class Home extends React.Component {
           <ChatroomContainer />
           <div className="logout">
             <div className="user_info">
+              <div className="icon_2" />
+
+            <div className="username_and_id_wrapper">
               <span className="username">
                 { this.props.currentUser.username }
               </span>
               <span className="userid">
                 #{ this.props.currentUser.id }
               </span>
+            </div>
+
             </div>
             <button className="logout_button" onClick={ this.handleClick() }>Logout</button>
           </div>

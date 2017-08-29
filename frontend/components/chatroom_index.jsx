@@ -53,7 +53,11 @@ class ChatroomIndex extends React.Component {
                       # {chatroom.name}
                     </div>
                   </Link>
-                    <button type="submit" className="chatroom_delete_button" onClick={ this.handleClick(chatroom.id) }>Delete</button>
+                  {chatroom.admin_id === this.props.currentUser.id &&
+                    <button type="submit" className="chatroom_delete_button" onClick={ this.handleClick(chatroom.id) }>
+                      X
+                    </button>
+                  }
                 </li>
             );
           });
@@ -78,6 +82,7 @@ class ChatroomIndex extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     chatrooms: selectChatrooms(state),
+    currentUser: ownProps.currentUser,
     ownProps,
   };
 };

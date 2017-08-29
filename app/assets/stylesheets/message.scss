@@ -2,19 +2,19 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 56px;
+  height: 10%;
   color: white;
   font-size: 20px;
+  font-weight: bold;
   border-bottom: 1px solid black;
+  min-height: 57px;
 }
 
 .welcome {
   display: flex;
-  position: fixed;
   margin-left: 11px;
   border: 1px;
   padding: 2px 8px;
-  length: 100%;
 }
 
 .messages_scroller {
@@ -47,8 +47,6 @@
 .icon_image {
   display: flex;
   align-self: flex-start;
-  justify-content: center;
-
 }
 
 .icon {
@@ -57,20 +55,9 @@
   height: 42px;
   background-image: image-url("discord_icon.png");
   padding-right: 20px;
-  transform: translateY(-11%);
+  transform: translateY(-6%);
   background-repeat: no-repeat;
 }
-
-.icon.resize {
-
-}
-
-// .message_wrapper {
-//   display: flex;
-//   width: 90%;
-//   justify-content: space-between;
-//
-// }
 
 .message_author {
   display: flex;
@@ -92,7 +79,7 @@
 .message_body_button {
   display: flex;
   justify-content: space-between;
-  width: 1320px;
+  // width: 80%;
 }
 
 .message_body {
@@ -110,16 +97,34 @@
   display: flex;
 }
 
+.message_delete_button {
+  height: 20px;
+  width: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #36393e;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+.message_delete_button:hover {
+  color: red;
+  opacity: 1;
+}
+
 .message_container {
   display: flex;
   vertical-align: baseline;
   margin-top: auto;
-  position: fixed;
+  width: 100%;
 }
 
 .empty {
   display: flex;
-  height: 84.1vh;
+  height: calc(100vh - 152px);
+  min-height: 570px;
 }
 
 .message_form {
