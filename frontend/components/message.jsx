@@ -104,7 +104,7 @@ class Message extends React.Component {
       );
     } else {
       return (
-        <div className="noComments">
+        <div className="empty">
         </div>
       );
     }
