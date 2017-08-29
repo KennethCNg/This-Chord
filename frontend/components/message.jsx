@@ -66,30 +66,34 @@ class Message extends React.Component {
       const messageList = this.props.messages.map((message, idx) => {
         return (
           <div key={`message-div-${idx}`} className="messages">
-            <li key={`message-li-${idx}`}  className="message">
+            <div className="icon_image">
+              <div className="icon" />
 
-              <div key={`message-author-date-${idx}`} className="message_author_date">
-                <div className="icon">Icon</div>
-                <div key={`message-author-${idx}`} className="message_author">
-                  { message.author_name }
-                </div>
-                <div key={`message-date-${idx}`} className="message_date">
-                  { message.created_at }
-                </div>
+              <div className="message_wrapper">
+                <li key={`message-li-${idx}`}  className="message">
+                  <div key={`message-author-date-${idx}`} className="message_author_date">
+                    <div key={`message-author-${idx}`} className="message_author">
+                      { message.author_name }
+                    </div>
+                    <div key={`message-date-${idx}`} className="message_date">
+                      { message.created_at }
+                    </div>
+                  </div>
+
+                  <div key={`message-body-button-${idx}`} className="message_body_button">
+                    <div key={`message-body-${idx}`} className="message_body">
+                      { message.body }
+                    </div>
+
+                    <div key= {`message-button-${idx}`} className="message_button">
+                      <button className="message_delete_button" onClick={ this.handleClick(message.id) }>Delete</button>
+                    </div>
+                  </div>
+                </li>
               </div>
 
-              <div key={`message-body-button-${idx}`} className="message_body_button">
-                <div key={`message-body-${idx}`} className="message_body">
-                  { message.body }
-                </div>
-
-                <div key= {`message-button-${idx}`} className="message_button">
-                  <button className="message_delete_button" onClick={ this.handleClick(message.id) }>Delete</button>
-                </div>
               </div>
-            </li>
-
-          </div>
+            </div>
         );
       });
       return (

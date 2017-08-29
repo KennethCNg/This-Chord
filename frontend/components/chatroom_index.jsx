@@ -50,7 +50,7 @@ class ChatroomIndex extends React.Component {
                 <li className="chatroom_index_item" key={`chatroom-${idx}`}>
                   <Link to={`/chatrooms/${chatroom.id}`}>
                     <div className="chatroom_name">
-                      {chatroom.name}
+                      # {chatroom.name}
                     </div>
                   </Link>
                     <button type="submit" className="chatroom_delete_button" onClick={ this.handleClick(chatroom.id) }>Delete</button>

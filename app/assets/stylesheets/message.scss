@@ -36,8 +36,6 @@
   margin-left: 20px;
   margin-right: 6px;
   border-bottom: 1px solid hsla(0,0%,100%,.04);
-  // white-space: pre-wrap;
-  // word-wrap: break-word;
 }
 
 .message_author_date {
@@ -45,6 +43,34 @@
   min-width: 100%;
   align-items: baseline;
 }
+
+.icon_image {
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+
+}
+
+.icon {
+  display: flex;
+  width: 38px;
+  height: 42px;
+  background-image: image-url("discord_icon.png");
+  padding-right: 20px;
+  transform: translateY(-11%);
+  background-repeat: no-repeat;
+}
+
+.icon.resize {
+
+}
+
+// .message_wrapper {
+//   display: flex;
+//   width: 90%;
+//   justify-content: space-between;
+//
+// }
 
 .message_author {
   display: flex;
@@ -66,8 +92,7 @@
 .message_body_button {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  // margin-left: 40;
+  width: 1320px;
 }
 
 .message_body {
