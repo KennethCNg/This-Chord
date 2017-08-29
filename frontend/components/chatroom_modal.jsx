@@ -17,12 +17,14 @@ class ChatroomModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     var placeholder = {
       name: this.state.name,
       admin_id: this.state.admin_id,
       author: this.state.author,
     };
     this.state.name = "";
+    this.props.handleClose();
     const chatroom = Object.assign({}, placeholder);
     this.props.requestCreateChatroom( { chatroom } );
   }
@@ -36,7 +38,7 @@ class ChatroomModal extends React.Component {
       return (
       <div>
         <form onSubmit={ this.handleSubmit }>
-          <input
+          <input required type='text'
             value={ this.state.name }
             onChange={this.update('name')} />
           <button>Create Channel</button>

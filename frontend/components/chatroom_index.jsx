@@ -24,16 +24,18 @@ class ChatroomIndex extends React.Component {
         if (this.props.chatrooms.length > 0) {
           const chatroomIndexItems = this.props.chatrooms.map((chatroom, idx) => {
             return (
-                <li key={`chatroom-${idx}`}>
+                <li className="chatroom_index_item" key={`chatroom-${idx}`}>
                   <Link to={`/chatrooms/${chatroom.id}`}>
-                    {chatroom.name}
+                    <div className="chatroom_name">
+                      {chatroom.name}
+                    </div>
                   </Link>
-                    <button onClick={ this.handleClick(chatroom.id) }>Delete</button>
+                    <button type="submit" className="chatroom_delete_button" onClick={ this.handleClick(chatroom.id) }>Delete</button>
                 </li>
             );
           });
           return (
-            <ul>
+            <ul className="chatroom_index">
               { chatroomIndexItems }
             </ul>
           );

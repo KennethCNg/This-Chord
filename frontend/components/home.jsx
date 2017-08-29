@@ -33,7 +33,7 @@ class Home extends React.Component {
 
         <div className="home_inner_sidebar_left">
           <ChatroomContainer />
-          <div>
+          <div className="logout">
             <button onClick={ this.handleClick() }>Logout</button>
           </div>
         </div>

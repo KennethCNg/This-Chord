@@ -1,3 +1,53 @@
 // Place all the styles related to the api/chatrooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chatroom_index {
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+}
+
+.chatroom_index_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  color: white;
+  font-family: 'Mukta Mahee', sans-serif;
+  opacity: 0.2;
+  height: 32px;
+}
+
+.chatroom_index_item:active {
+  color: white;
+  background: transparentize(#2C2F33, 0.2);
+}
+
+.chatroom_index_item:hover {
+  -webkit-filter: brightness(150%);
+  color: white;
+  opacity: 1;
+  background: transparentize(#2C2F33, 0.2);
+}
+
+.chatroom_index_item:focus {
+  display: flex;
+  -webkit-filter: brightness(150%);
+  color: white;
+  opacity: 1;
+  justify-content: center;
+}
+
+.chatroom_name {
+  color: white;
+  font-family: 'Mukta Mahee', sans-serif;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.chatroom_delete_button {
+  border: none;
+}
