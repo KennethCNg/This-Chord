@@ -65,6 +65,10 @@ class Message extends React.Component {
     }
   }
 
+  renderDelete() {
+
+  }
+
   renderMessages() {
     if (this.props.messages.length > 0) {
       // this.renderMessages();
@@ -97,9 +101,11 @@ class Message extends React.Component {
                   </div>
                 </li>
               </div>
+              {message.author_id === this.props.currentUser.id &&
               <button className="message_delete_button" onClick={ this.handleClick(message.id) }>
                 X
               </button>
+              }
               </div>
             </div>
         );
