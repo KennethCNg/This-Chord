@@ -71,8 +71,6 @@ class Message extends React.Component {
 
   renderMessages() {
     if (this.props.messages.length > 0) {
-      // this.renderMessages();
-      // this.renderInput();
       const messageList = this.props.messages.map((message, idx) => {
         return (
           <div key={`message-div-${idx}`} className="messages">

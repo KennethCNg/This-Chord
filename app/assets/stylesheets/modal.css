@@ -1,0 +1,118 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 366px;
+  width: 440px;
+  left: 50%;
+  right: 50%;
+  border: solid 1px black;
+  transform: translate(-50%, +45%);
+  max-width: 660px;
+  max-height: 200px;
+  background-color: #36393f;
+  border-radius: 5px;
+  padding: 20px;
+  transition-delay: 1s, 4ms;
+  transition-timing-function: ease-in;
+}
+
+.modal_backdrop {
+  background-color: black;
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index: 10;
+  opacity: .75;
+}
+
+.modalwrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.modal_header {
+  width: 100%;
+  color: white;
+  font-family: 'Mukta Mahee', sans-serif;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.modal_form_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_input_name {
+  color: white;
+  opacity: 0.7;
+  font-size: 13px;
+  margin: 10px;
+  margin-right: auto;
+}
+
+.modal_input {
+  color: white;
+  font-family: 'Mukta Mahee', sans-serif;
+  border-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.1);
+  padding: 10px;
+  height: 30px;
+  border-radius: 3px;
+  font-size: 14px;
+  width: 90%;
+  margin: 2%;
+}
+
+.modal_button2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: #2f3136;
+}
+
+.modal_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 50%;
+  margin: 2%;
+}
+
+.modal_create_button {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  font: white;
+  background-color: #7289DA;
+  color: white;
+  height: 38px;
+  width: 123px;
+  font-size:15px;
+  border: none;
+  justify-content: center;
+  border-radius: 3px;
+  font-family: 'Mukta Mahee', sans-serif;
+}
+
+.modal_cancel_button {
+  display: flex;
+  cursor: pointer;
+  color: white;
+  font-size:15px;
+  border: none;
+  justify-content: center;
+  background-color: #36393f;
+  font-family: 'Mukta Mahee', sans-serif;
+  height: 38px;
+  width: 123px;
+}
+
+.modal_cancel_button:hover {
+  text-decoration: underline;
+}

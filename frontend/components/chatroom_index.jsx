@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter} from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Chatroom } from './chatroom';
 import { selectChatrooms  } from './selector';
 import { requestDestroyChatroom } from '../actions/chatroom_actions';
@@ -11,7 +11,6 @@ class ChatroomIndex extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.renderInvite = this.renderInvite.bind(this);
   }
 
 
@@ -22,62 +21,28 @@ class ChatroomIndex extends React.Component {
     };
   }
 
-  renderInvite() {
-    if (this.props.location.pathname !== "/") {
-      return (
-        <div className="share">
-          <div className="share_invite">
-            Invite Your Friends!
-          </div>
-          <div className="share_link">
-            this-chord.herokuapp.com:
-            <br/>
-            { this.props.location.pathname }
-          </div>
-        </div>
-    );
-    } else {
-        return (
-          null
-        );
-      }
-  }
-
   render() {
         if (this.props.chatrooms.length > 0) {
           const chatroomIndexItems = this.props.chatrooms.map((chatroom, idx) => {
             return (
+              <NavLink to={`/chatrooms/${chatroom.id}`} activeClassName="banana">
                 <li className="chatroom_index_item" key={`chatroom-${idx}`}>
-                  <Link to={`/chatrooms/${chatroom.id}`}>
                     <div className="chatroom_name">
                       # {chatroom.name}
                     </div>
-                  </Link>
                   {chatroom.admin_id === this.props.currentUser.id &&
                     <button type="submit" className="chatroom_delete_button" onClick={ this.handleClick(chatroom.id) }>
                       X
                     </button>
                   }
                 </li>
+              </NavLink>
             );
           });
           return (
             <div>
 
               <ul className="chatroom_index">
-                { this.renderInvite() }
-                
-                <div className="channel_text_and_button">
-                  <div className="channel_text">
-                    CHANNELS
-                  </div>
-                  <div>
-                    <button onClick={ this.handleClick } className="channel_button">
-                      +
-                    </button>
-                  </div>
-                </div>
-
                 { chatroomIndexItems }
               </ul>
             </div>

@@ -62,6 +62,14 @@
   height: 32px;
 }
 
+// .banana {
+//   background-color: gray;
+// }
+//
+// .banana li div {
+//   color: white;
+// }
+
 .chatroom_index_item:active {
   color: white;
   background: transparentize(#2C2F33, 0.2);
@@ -74,13 +82,13 @@
   background: transparentize(#2C2F33, 0.2);
 }
 
-.chatroom_index_item:focus {
-  display: flex;
-  -webkit-filter: brightness(150%);
-  color: white;
-  opacity: 1;
-  justify-content: center;
-}
+// .chatroom_index_item:focus {
+//   display: flex;
+//   -webkit-filter: brightness(150%);
+//   color: white;
+//   opacity: 1;
+//   justify-content: center;
+// }
 
 .chatroom_name {
   color: white;

@@ -12,6 +12,7 @@ class ChatroomModal extends React.Component {
       admin_id: this.props.currentUser.id,
       author: this.props.currentUser.username,
     };
+    this.errors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -33,17 +34,51 @@ class ChatroomModal extends React.Component {
     return e => this.setState({[prop]: e.currentTarget.value});
   }
 
+  errors() {
+    if (this.props.errors) {
+      const errorList = this.props.errors.map((error, idx) => {
+        return (
+          <li key={`error-${idx}`}>
+            { error }
+          </li>
+        );
+      });
+      return (
+        <ul className="session-errors">
+          { errorList }
+        </ul>
+        );
+    }
+  }
+
   render() {
     if (this.props.isOpen) {
       return (
-      <div>
-        <form onSubmit={ this.handleSubmit }>
-          <input required type='text'
-            value={ this.state.name }
-            onChange={this.update('name')} />
-          <button>Create Channel</button>
-        </form>
-        <button onClick={this.props.handleClose}>Cancel</button>
+      <div className="modal_backdrop" onClick={ this.props.handleClose }>
+        <div className="modal">
+
+          <form onSubmit={ this.handleSubmit } onClick={(e) => e.stopPropagation()}>
+            <div className="modal_wrapper">
+              <div className="modal_header">
+                CREATE CHANNEL
+              </div>
+              <div className="modal_form_wrapper">
+                <div className="modal_input_name">
+                  CHANNEL NAME
+                </div>
+                <input className="modal_input" required type='text'
+                  value={ this.state.name }
+                  onChange={this.update('name')} />
+              </div>
+            </div>
+            <div className="modal_buttons">
+
+                <button onClick={this.props.handleClose} className="modal_cancel_button">Cancel</button>
+                <button className="modal_create_button">Create Channel</button>
+            </div>
+
+          </form>
+        </div>
       </div>
       );
     } else {
