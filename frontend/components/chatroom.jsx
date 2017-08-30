@@ -25,7 +25,12 @@ class Chatroom extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.renderInvite();
+  }
+
   renderInvite() {
+    debugger;
     if (this.props.location.pathname !== "/") {
       return (
         <div className="share">

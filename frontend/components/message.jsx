@@ -26,6 +26,10 @@ class Message extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if ( isEmptyObject(this.props.chatrooms) && (Object.keys(nextProps.chatrooms).includes(this.props.match.params) === false) ) {
+      const chatroomId = Object.keys(nextProps.chatrooms)[0];
+      this.props.history.push(`/chatrooms/${chatroomId}`);
+    }
     if (this.props.match.params.chatroomsId !== nextProps.match.params.chatroomsId) {
       this.props.requestMessages(nextProps.match.params.chatroomsId);
     }
@@ -124,8 +128,8 @@ class Message extends React.Component {
 
   renderInput() {
     //line 122 is checking if this.props.chatrooms is an empty
-    if ( isEmptyObject(this.props.chatrooms) ) {
-      const msg = "Message #".concat(this.props.chatrooms[this.props.location.pathname.slice(11)].name);
+    if ( !(isEmptyObject(this.props.chatrooms)) ) {
+      const msg = "Message #".concat(this.props.chatrooms[this.props.match.params.chatroomsId].name);
       return (
         <input placeholder={msg} className="message_input" type='text'
         value={ this.state.body }
@@ -137,10 +141,10 @@ class Message extends React.Component {
   }
 
   renderHeader(nextProps) {
-    if ( isEmptyObject(this.props.chatrooms) ) {
+    if ( !(isEmptyObject(this.props.chatrooms)) ) {
       return (
         <div className="welcome">
-          # { this.props.chatrooms[this.props.location.pathname.slice(11)].name }
+          # { this.props.chatrooms[this.props.match.params.chatroomsId].name }
         </div>
       );
     }

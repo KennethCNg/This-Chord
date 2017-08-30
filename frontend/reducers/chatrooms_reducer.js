@@ -1,4 +1,5 @@
 import { RECEIVE_CHATROOMS } from '../actions/chatroom_actions';
+import { CLEAR_STATE } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 
@@ -7,7 +8,9 @@ const chatroomReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_CHATROOMS:
       return merge({}, action.chatrooms);
-      default:
+    case CLEAR_STATE:
+      return {};
+    default:
       return state;
   }
 };

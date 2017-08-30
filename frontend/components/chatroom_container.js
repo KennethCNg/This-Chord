@@ -5,7 +5,8 @@ import { selectChatrooms } from './selector';
 
 const mapStateToProps = state => {
   return {
-    chatrooms: selectChatrooms(state),
+    chatrooms: state.entities.chatrooms,
+
     currentUser: state.session.currentUser,
   };
 };

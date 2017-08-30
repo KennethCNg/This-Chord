@@ -3,6 +3,7 @@ import { Route, Link } from  'react-router-dom';
 import MessageContainer from './message_container';
 import ChatroomContainer from './chatroom_container';
 import ChatroomModal from './chatroom_modal';
+import DirectMessagingContainer from './direct_messaging_container';
 
 class Home extends React.Component {
   constructor(props) {
@@ -24,15 +25,18 @@ class Home extends React.Component {
       return (
       <div className="home_container">
 
-
         {/* Left to Right */}
         <div className="home_outer_sidebar_left">
-
+          <button className="direct_messaging">
+            DM's
+          </button>
         </div>
 
 
         <div className="home_inner_sidebar_left">
           <ChatroomContainer />
+          {/*<Route path="/chatrooms" component={ ChatroomContainer } />*/}
+          {/*<Route path="/messaging" component={ DirectMessagingContainer } />*/}
           <div className="logout">
             <div className="user_info">
               <div className="icon_2" />
@@ -53,8 +57,8 @@ class Home extends React.Component {
 
         {/* Messages */}
         <div className="home_message_container">
-          <ChatroomModal/>
-          <Route path="/chatrooms/:chatroomsId" component={ MessageContainer } />
+          <ChatroomModal />
+          <Route exact path="/chatrooms/:chatroomsId" component={ MessageContainer } />
         </div>
 
         <div className="home_sidebar_right">
