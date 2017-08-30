@@ -39,7 +39,7 @@ class Chatroom < ApplicationRecord
   has_many(
     :members,
     through: :memberships,
-    source: :member
+    source: :member,
   )
 
 end

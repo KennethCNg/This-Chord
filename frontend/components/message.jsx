@@ -9,8 +9,6 @@ class Message extends React.Component {
     super(props);
     this.state = {
       body: "",
-      author_name: this.props.currentUser.username,
-      author_id: this.props.currentUser.id,
       chatroom_id: this.props.location.pathname.slice(11),
     };
 
@@ -45,8 +43,6 @@ class Message extends React.Component {
       e.preventDefault();
       var placeholder = {
         body: this.state.body,
-        author_id: this.props.currentUser.id,
-        author_name: this.props.currentUser.username,
         chatroom_id: this.props.location.pathname.slice(11),
       };
       this.state.body = "";

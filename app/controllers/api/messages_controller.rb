@@ -6,6 +6,8 @@ class Api::MessagesController < ApplicationController
 
     def create
       @message = Message.new(message_params)
+      @message.author_id = current_user.id
+      @message.author_name = current_user.username
       if @message.save
         render :show
       else
@@ -23,6 +25,6 @@ class Api::MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:body, :author_name, :author_id, :chatroom_id)
+      params.require(:message).permit(:body, :chatroom_id)
     end
 end

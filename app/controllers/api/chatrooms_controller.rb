@@ -11,7 +11,9 @@ class Api::ChatroomsController < ApplicationController
   end
 
   def create
+
     @chatroom = Chatroom.new(chatroom_params)
+    @chatroom.admin_id = current_user.id
     if @chatroom.save
       nil
     else
@@ -25,7 +27,7 @@ class Api::ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :admin_id, :private)
+    params.require(:chatroom).permit(:name, :private)
   end
 
 end
