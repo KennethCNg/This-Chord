@@ -30,7 +30,6 @@ class Chatroom extends React.Component {
   }
 
   renderInvite() {
-    debugger;
     if (this.props.location.pathname !== "/") {
       return (
         <div className="share">
