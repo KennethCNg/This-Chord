@@ -1,16 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestCreateChatroom } from '../actions/chatroom_actions';
+import { requestCreateDM } from '../actions/direct_message_actions';
 
-
-class ChatroomModal extends React.Component {
+class DMModal extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       name: "",
-      admin_id: this.props.currentUser.id,
-      author: this.props.currentUser.username,
     };
     this.errors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,8 +21,8 @@ class ChatroomModal extends React.Component {
     };
     this.state.name = "";
     this.props.handleClose();
-    const chatroom = Object.assign({}, placeholder);
-    this.props.requestCreateChatroom( { chatroom } );
+    const membership = Object.assign({}, placeholder);
+    this.props.requestCreateDM( { membership } );
   }
 
   update(prop) {
@@ -58,7 +55,7 @@ class ChatroomModal extends React.Component {
           <form onSubmit={ this.handleSubmit } onClick={(e) => e.stopPropagation()}>
             <div className="modal_wrapper">
               <div className="modal_header">
-                CREATE CHANNEL
+                START A PRIVATE CONVERSATION
               </div>
               <div className="modal_form_wrapper">
                 <div className="modal_input_name">
@@ -92,17 +89,16 @@ const MapStateToProps = ( state, ownProps ) => {
       isOpen: ownProps.isOpen,
       handleClose: ownProps.handleClose,
       currentUser: state.session.currentUser,
-
   };
 };
 
 const MapDispatchToProps = dispatch => {
   return {
-    requestCreateChatroom: (chatroom) => dispatch(requestCreateChatroom(chatroom)),
+    requestCreateDM: (dm) => dispatch(requestCreateDM(dm)),
   };
 };
 
 export default connect(
   MapStateToProps,
   MapDispatchToProps
-)(ChatroomModal);
+)(DMModal);

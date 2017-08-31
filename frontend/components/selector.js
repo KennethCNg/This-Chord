@@ -11,3 +11,9 @@ export const selectChatrooms = (state) => {
     values(state.entities.chatrooms)
   );
 };
+
+export const selectDMs = (state) => {
+  return (
+    values(state.entities.directMessages)
+  );
+};

@@ -1,1 +1,4 @@
-json.partial! '/api/users/user', user: @user
+json.currentUser do
+  json.extract! @user, :id, :username
+  json.dmIds @user.direct_messages.map(&:id)
+end

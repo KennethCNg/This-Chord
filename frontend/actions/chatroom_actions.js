@@ -32,14 +32,6 @@ export const requestChatroomMessages = (chatroomId) => dispatch => {
   );
 };
 
-// export const requestChatroomMessages = (chatroomId) => dispatch => {
-//   return (
-//     ChatroomAPIUtil.fetchChatroomMessages(chatroomId)
-//     .then(({messages}) => dispatch(receiveMessages(messages)),
-//   (err) => dispatch(receiveErrors(err.responseJSON)))
-//   );
-// };
-
 export const requestCreateChatroom = chatroom => dispatch => {
   return (
     ChatroomAPIUtil.createChatroom(chatroom)

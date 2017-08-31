@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from  'react-router-dom';
+import { Route, Link, NavLink } from  'react-router-dom';
 import MessageContainer from './message_container';
 import ChatroomContainer from './chatroom_container';
 import ChatroomModal from './chatroom_modal';
@@ -27,16 +27,19 @@ class Home extends React.Component {
 
         {/* Left to Right */}
         <div className="home_outer_sidebar_left">
-          <button className="direct_messaging">
+          <NavLink to={`/direct_messages`}>
             DM's
-          </button>
+          </NavLink>
+          <NavLink to={`/chatrooms`}>
+            Channels
+          </NavLink>
         </div>
 
 
         <div className="home_inner_sidebar_left">
-          <ChatroomContainer />
-          {/*<Route path="/chatrooms" component={ ChatroomContainer } />*/}
-          {/*<Route path="/messaging" component={ DirectMessagingContainer } />*/}
+          {/*<ChatroomContainer />*/}
+          <Route path="/chatrooms" component={ ChatroomContainer } />
+          <Route path="/direct_messages" component={ DirectMessagingContainer } />
           <div className="logout">
             <div className="user_info">
               <div className="icon_2" />

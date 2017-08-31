@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import merge from 'lodash/merge';
 import { isEmptyObject }  from './helpers/helpers';
+import values from 'lodash/values';
 // import { receiveChatrooms, requestAllChatrooms, RECEIVE_CHATROOMS } from './actions/chatroom_actions';
 // import { fetchAllChatrooms } from './util/chatroom_api_util';
 // import { receiveMessages, requestAllMessages, requestDeleteMessage, RECEIVE_MESSAGE } from './actions/message_actions';
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={ store }/>, root);
 });
 
+window.values = values;
 window.isEmptyObject = isEmptyObject;
 // window.fetchAllChatrooms = fetchAllChatrooms;
 // window.receiveChatrooms = receiveChatrooms;

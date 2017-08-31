@@ -10,6 +10,7 @@
 #
 
 class Membership < ApplicationRecord
+  validates :member_id, :channel_id, presence: true
 
   belongs_to(
     :member,

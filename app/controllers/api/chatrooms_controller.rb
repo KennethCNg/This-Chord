@@ -2,6 +2,7 @@ class Api::ChatroomsController < ApplicationController
 
   def index
     @chatrooms = Chatroom.all
+    @directmessages = current_user.direct_messages
     render :index
   end
 
@@ -11,7 +12,6 @@ class Api::ChatroomsController < ApplicationController
   end
 
   def create
-
     @chatroom = Chatroom.new(chatroom_params)
     @chatroom.admin_id = current_user.id
     if @chatroom.save
@@ -27,7 +27,7 @@ class Api::ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :private)
+    params.require(:chatroom).permit(:name)
   end
 
 end

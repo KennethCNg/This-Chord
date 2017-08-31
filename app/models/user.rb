@@ -38,7 +38,7 @@ class User < ApplicationRecord
   )
 
   has_many(
-    :chatroom_memberships,
+    :direct_messages,
     through: :memberships,
     source: :channel
   )
