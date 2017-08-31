@@ -35,7 +35,9 @@ class DirectMessaging extends React.Component {
           <DMModal
             isOpen={this.state.modalOpen}
             handleClose={this.handleClick}
-            currentUser={this.props.currentUser}/>
+            currentUser={this.props.currentUser}
+            users={this.props.users}
+            />
 
         </div>
         {/*<DMIndex />*/}

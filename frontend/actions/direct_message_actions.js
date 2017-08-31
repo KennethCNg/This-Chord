@@ -3,7 +3,6 @@ import { requestAllChatrooms } from './chatroom_actions.js';
 import { receiveErrors } from './ui_actions';
 
 export const requestCreateDM = (dm) => dispatch => {
-  debugger;
   return (
     DMAPIUtil.requestCreateDM(dm)
     .then(() => dispatch(requestAllChatrooms()),

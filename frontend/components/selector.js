@@ -17,3 +17,9 @@ export const selectDMs = (state) => {
     values(state.entities.directMessages)
   );
 };
+
+export const selectUsers = (state) => {
+  return (
+    values(state.entities.users)
+  );
+};

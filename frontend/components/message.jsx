@@ -26,7 +26,7 @@ class Message extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ( isEmptyObject(this.props.chatrooms) && (Object.keys(nextProps.chatrooms).includes(this.props.match.params) === false) ) {
+    if ( isEmptyObject(this.props.chatrooms) && (Object.keys(nextProps.chatrooms).includes(this.props.match.params.chatroomsId) === false) ) {
       if (nextProps.chatrooms) {
         const chatroomId = Object.keys(nextProps.chatrooms)[0];
         this.props.history.push(`/chatrooms/${chatroomId}`);

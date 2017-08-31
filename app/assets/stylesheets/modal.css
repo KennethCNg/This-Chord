@@ -100,6 +100,28 @@
   font-family: 'Mukta Mahee', sans-serif;
 }
 
+.fake_form {
+  display: flex;
+  height: 30px;
+  width: 90%;
+  border: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.1);
+  margin: 10px;
+  padding: 2px;
+  justify-content: center;
+  align-content: center;
+}
+
+.fake_form_input {
+  display: flex;
+  align-self: center;
+  color: white;
+}
+
+.activate {
+  background-color: #7289DA;
+}
+
 .modal_cancel_button {
   display: flex;
   cursor: pointer;

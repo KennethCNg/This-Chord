@@ -1,16 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestCreateDM } from '../actions/direct_message_actions';
+import { selectUsers } from './selector';
+
 
 class DMModal extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: "",
+      name: [],
+      user_ids: [],
+      highlight: "active",
     };
     this.errors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderUsers = this.renderUsers.bind(this);
+    this.selectUser = this.selectUser.bind(this);
   }
 
   handleSubmit(e) {
@@ -18,8 +24,9 @@ class DMModal extends React.Component {
 
     var placeholder = {
       name: this.state.name,
+      user_ids: this.state.userId,
     };
-    this.state.name = "";
+    this.state.name = [];
     this.props.handleClose();
     const membership = Object.assign({}, placeholder);
     this.props.requestCreateDM( { membership } );
@@ -46,6 +53,55 @@ class DMModal extends React.Component {
     }
   }
 
+  selectUser(userId, username) {
+    if ( (this.state.user_ids.includes(userId)) ) {
+      this.setState({
+          name: this.state.name.filter(name => name !== username),
+          user_ids: this.state.user_ids.filter(id => id !== userId),
+      });
+
+    } else {
+      this.setState({
+        name: this.state.name.concat(username),
+        user_ids: this.state.user_ids.concat(userId),
+      });
+    }
+  }
+
+
+
+  renderUsers() {
+    if (this.props.users.length > 0) {
+      const usersIndex = this.props.users.map((user, idx) => {
+        if ( user !== this.props.currentUser ) {
+          const selected = this.state.user_ids.includes(user.id);
+          return (
+            <div>
+
+              <li
+                key={`dm-li-${user.id}`}
+                className={ selected ? "activate" : "" }
+                onClick={ this.selectUser.bind(this, user.id, user.username) }
+                >
+                { user.username }
+              </li>
+
+            </div>
+          );
+        }
+    });
+    return (
+      <ul className="dm_index">
+        { usersIndex }
+      </ul>
+    );
+    } else {
+      return (
+        null
+    );
+    }
+  }
+
   render() {
     if (this.props.isOpen) {
       return (
@@ -61,15 +117,35 @@ class DMModal extends React.Component {
                 <div className="modal_input_name">
                   CHANNEL NAME
                 </div>
-                <input className="modal_input" required type='text'
-                  value={ this.state.name }
-                  onChange={this.update('name')} />
+
+                <div className="fake_form">
+                  <div className="fake_form_input">
+                    { this.state.name.join(", ") }
+                  </div>
+                </div>
+
               </div>
             </div>
-            <div className="modal_buttons">
 
-                <button onClick={this.props.handleClose} className="modal_cancel_button">Cancel</button>
-                <button className="modal_create_button">Create Channel</button>
+            <div className="selector_button_wrapper">
+              <div className="user_selection_wrapper">
+              { this.renderUsers() }
+              </div>
+
+              <div className="modal_buttons">
+
+                <button
+                  onClick={this.props.handleClose}
+                  className="modal_cancel_button">
+                  Cancel
+                </button>
+
+                <button
+                  className="modal_create_button">
+                  Send Message
+                </button>
+
+              </div>
             </div>
 
           </form>
@@ -89,6 +165,7 @@ const MapStateToProps = ( state, ownProps ) => {
       isOpen: ownProps.isOpen,
       handleClose: ownProps.handleClose,
       currentUser: state.session.currentUser,
+      users: selectUsers(state),
   };
 };
 

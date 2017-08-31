@@ -5,7 +5,6 @@ class Api::MembershipsController < ApplicationController
   end
 
   def create
-    debugger
     @direct_message = Chatroom.new({name: params[:membership][:name]})
     @direct_message.admin_id = current_user.id
     @direct_message.private = true
