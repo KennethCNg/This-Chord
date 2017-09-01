@@ -8,12 +8,13 @@ json.chatrooms do
   end
 end
 
-json.directMessages do
-  @chatrooms.each do |chatroom|
-    if chatroom.private == true
-      json.set! chatroom.id do
-        json.extract! chatroom, :id, :name
+  json.directMessages do
+    @chatrooms.each do |chatroom|
+      if chatroom.private == true
+        json.set! chatroom.id do
+          json.extract! chatroom, :id, :name
+          json.member_ids chatroom.member_ids
+        end
       end
     end
   end
-end

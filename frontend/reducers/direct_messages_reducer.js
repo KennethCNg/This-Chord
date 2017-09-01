@@ -7,8 +7,7 @@ const directMessagesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CHATROOMS:
-    debugger;
-      return merge({}, action.name.directMessages);
+      return merge({}, action.name.directMessages.directMessages);
     case CLEAR_STATE:
       return {};
     default:
