@@ -33,11 +33,11 @@ class UserIndex extends React.Component {
           <div className="user_header">
             MEMBERS
           </div >
-          <div className="user_index">
-            <ul>
-              { userIndexItems }
-            </ul>
-          </div>
+          <div className="outer_user_index">
+              <ul>
+                { userIndexItems }
+              </ul>
+            </div>
         </div>
       );
     } else {

@@ -36,7 +36,7 @@ class Home extends React.Component {
             </NavLink>
           </div>
 
-          <div>
+          <div className="channel_wrapper">
             <NavLink to={`/chatrooms`}>
               <div className="channels" />
             </NavLink>

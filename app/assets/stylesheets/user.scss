@@ -7,8 +7,9 @@
 .username_icon_wrapper {
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 100%;
   padding-left: 10%;
+  margin-left: auto;
 }
 
 .icon_3 {
@@ -35,8 +36,14 @@
   margin-bottom: 10px;
 }
 
-// .user_index {
-//   display: flex;
-//   height: 80%;
-//   overflow: scroll;
-// }
+.outer_user_index {
+  display: flex;
+  height: 80%;
+  overflow: scroll;
+  width: 90%;
+  margin-left: 15px;
+}
+
+.user_wrapper {
+  width: inherit;
+}
