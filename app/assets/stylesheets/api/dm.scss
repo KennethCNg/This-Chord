@@ -1,0 +1,58 @@
+.dm_index {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 38px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.user_item:hover {
+  background-color: #7289DA;
+}
+
+.user_selection_wrapper {
+  display: flex;
+  width: 125px;
+  border: solid 2px gray;
+  justify-content: center;
+  padding: 8px;
+  color: white;
+}
+
+.selector_button_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.dms {
+background-image: image-url("dms.png");
+background-repeat: no-repeat;
+height: 40px;
+width: 40px;
+background-size: contain;
+}
+
+.dms_wrapper {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+.channels {
+  background-image: image-url("channels.png");
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  background-size: contain;
+  transform: translateX(22%);
+}
+
+
+.channels_wrapper {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}

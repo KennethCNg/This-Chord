@@ -136,7 +136,6 @@ class DMMessage extends React.Component {
   }
 
   renderHeader(nextProps) {
-    debugger;
     if (isEmpty(this.props.chatrooms)) {
       return null;
     }

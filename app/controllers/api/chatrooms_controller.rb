@@ -2,6 +2,8 @@ class Api::ChatroomsController < ApplicationController
 
   def index
     @chatrooms = Chatroom.all
+    @username = current_user.username
+    
     render :index
   end
 

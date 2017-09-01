@@ -12,10 +12,6 @@ class UserIndex extends React.Component {
     this.props.requestAllUsers();
   }
 
-  // componentWillReceiveProps() {
-  //   this.props.requestAllUsers();
-  // }
-
   render() {
     if (this.props.users.length > 0) {
       const userIndexItems = this.props.users.map((user, idx) => {

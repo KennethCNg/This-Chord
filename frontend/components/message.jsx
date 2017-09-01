@@ -22,7 +22,6 @@ class Message extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.requestMessages(this.state.chatroom_id);
     this.scrollToBottom();
   }

@@ -6,6 +6,7 @@ import ChatroomModal from './chatroom_modal';
 import DirectMessagingContainer from './direct_messaging_container';
 import UserIndex from './user_index';
 import DMMessageContainer from './dm_message_container';
+import DMUserIndex from './dm_user_index';
 
 class Home extends React.Component {
   constructor(props) {
@@ -21,9 +22,6 @@ class Home extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.props.requestAllUsers();
-  // }
 
   render() {
     if (this.props.currentUser) {
@@ -32,12 +30,17 @@ class Home extends React.Component {
 
         {/* Left to Right */}
         <div className="home_outer_sidebar_left">
+          <div className="dms_wrapper">
           <NavLink to={`/direct_messages`}>
-            DM's
-          </NavLink>
-          <NavLink to={`/chatrooms`}>
-            Channels
-          </NavLink>
+            <div className="dms" />
+            </NavLink>
+          </div>
+
+          <div>
+            <NavLink to={`/chatrooms`}>
+              <div className="channels" />
+            </NavLink>
+            </div>
         </div>
 
 
@@ -72,7 +75,7 @@ class Home extends React.Component {
 
         <div className="home_sidebar_right">
           <Route path="/chatrooms" component={ UserIndex } />
-          <Route path="/direct_messages/:directmessagesId" component={ UserIndex } />
+          <Route path="/direct_messages/:directmessagesId" component={ DMUserIndex } />
         </div>
         {/*Ends here*/}
 

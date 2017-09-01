@@ -23,3 +23,9 @@ export const selectUsers = (state) => {
     values(state.entities.users)
   );
 };
+
+export const selectMemberIds = (state) => {
+  return (
+    values(state.entities.directMessages)
+  );
+};
