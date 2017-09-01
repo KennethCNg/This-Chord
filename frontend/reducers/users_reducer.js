@@ -8,7 +8,6 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USERS:
       return merge({}, action.users );
     case RECEIVE_CHATROOMS:
-    debugger;
       return merge({}, action.name.directMessages.members);
     default:
       return state;

@@ -4,6 +4,7 @@ import MessageContainer from './message_container';
 import ChatroomContainer from './chatroom_container';
 import ChatroomModal from './chatroom_modal';
 import DirectMessagingContainer from './direct_messaging_container';
+import UserIndex from './user_index';
 
 class Home extends React.Component {
   constructor(props) {
@@ -65,7 +66,7 @@ class Home extends React.Component {
         </div>
 
         <div className="home_sidebar_right">
-          /* Right Members nav-bar */
+          <Route path="/chatrooms" component={ UserIndex } />
         </div>
         {/*Ends here*/}
 
