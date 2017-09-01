@@ -25,15 +25,27 @@ class ChatroomIndex extends React.Component {
         if (this.props.chatrooms.length > 0) {
           const chatroomIndexItems = this.props.chatrooms.map((chatroom, idx) => {
             return (
-              <NavLink key={`chatroom-nav-${idx}`} to={`/chatrooms/${chatroom.id}`} activeClassName="banana">
-                <li className="chatroom_index_item" key={`chatroom-li-${idx}`}>
-                    <div className="chatroom_name" key={`chatroom-div-${idx}`}>
-                      # {chatroom.name}
-                    </div>
-                  {chatroom.admin_id === this.props.currentUser.id &&
-                    <button key={`chatroom-delete-button-${idx}`} type="submit" className="chatroom_delete_button" onClick={ this.handleClick(chatroom.id) }>
-                      X
-                    </button>
+              <NavLink
+                key={`chatroom-nav-${chatroom.id}`}
+                to={`/chatrooms/${chatroom.id}`}
+                activeClassName="banana"
+              >
+                <li
+                  className="chatroom_index_item"
+                  key={`chatroom-li-${chatroom.id}`}>
+                  <div
+                    className="chatroom_name"
+                    key={`chatroom-div-${chatroom.id}`}>
+                    # {chatroom.name}
+                  </div>
+                {chatroom.admin_id === this.props.currentUser.id &&
+                <button
+                  key={`chatroom-delete-button-${chatroom.id}`}
+                  type="submit"
+                  className="chatroom_delete_button"
+                  onClick={ this.handleClick(chatroom.id) }>
+                  X
+                </button>
                   }
                 </li>
               </NavLink>

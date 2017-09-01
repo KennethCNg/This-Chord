@@ -2,6 +2,7 @@ import React from 'react';
 import merge from 'lodash/merge';
 import ReactDOM from 'react-dom';
 import { isEmptyObject } from '../helpers/helpers.js';
+import { isEmpty } from 'lodash';
 
 
 class Message extends React.Component {
@@ -26,12 +27,6 @@ class Message extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ( isEmptyObject(this.props.chatrooms) && (Object.keys(nextProps.chatrooms).includes(this.props.match.params.chatroomsId) === false) ) {
-      if (nextProps.chatrooms) {
-        const chatroomId = Object.keys(nextProps.chatrooms)[0];
-        this.props.history.push(`/chatrooms/${chatroomId}`);
-      }
-    }
     if (this.props.match.params.chatroomsId !== nextProps.match.params.chatroomsId) {
       this.props.requestMessages(nextProps.match.params.chatroomsId);
     }
@@ -65,10 +60,6 @@ class Message extends React.Component {
     if (node) {
       node.scrollIntoView({block: 'end', behavior: 'smooth'});
     }
-  }
-
-  renderDelete() {
-
   }
 
   renderMessages() {
@@ -143,13 +134,14 @@ class Message extends React.Component {
   }
 
   renderHeader(nextProps) {
-    if ( !(isEmptyObject(this.props.chatrooms)) ) {
-      return (
-        <div className="welcome">
-          # { this.props.chatrooms[this.props.match.params.chatroomsId].name }
-        </div>
-      );
+    if (isEmpty(this.props.chatrooms)) {
+      return null;
     }
+    return (
+      <div className="welcome">
+        # { this.props.chatrooms[this.props.match.params.chatroomsId].name }
+      </div>
+    );
   }
 
   render() {

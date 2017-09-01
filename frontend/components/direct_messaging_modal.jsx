@@ -10,7 +10,7 @@ class DMModal extends React.Component {
 
     this.state = {
       name: [],
-      user_ids: [],
+      member_ids: [],
       highlight: "active",
     };
     this.errors = this.errors.bind(this);
@@ -23,8 +23,8 @@ class DMModal extends React.Component {
     e.preventDefault();
 
     var placeholder = {
-      name: this.state.name,
-      user_ids: this.state.userId,
+      name: this.state.name.join(", "),
+      member_ids: this.state.member_ids,
     };
     this.state.name = [];
     this.props.handleClose();
@@ -54,16 +54,16 @@ class DMModal extends React.Component {
   }
 
   selectUser(userId, username) {
-    if ( (this.state.user_ids.includes(userId)) ) {
+    if ( (this.state.member_ids.includes(userId)) ) {
       this.setState({
           name: this.state.name.filter(name => name !== username),
-          user_ids: this.state.user_ids.filter(id => id !== userId),
+          member_ids: this.state.member_ids.filter(id => id !== userId),
       });
 
     } else {
       this.setState({
         name: this.state.name.concat(username),
-        user_ids: this.state.user_ids.concat(userId),
+        member_ids: this.state.member_ids.concat(userId),
       });
     }
   }
@@ -71,22 +71,19 @@ class DMModal extends React.Component {
 
 
   renderUsers() {
+    const self = this;
     if (this.props.users.length > 0) {
       const usersIndex = this.props.users.map((user, idx) => {
-        if ( user !== this.props.currentUser ) {
-          const selected = this.state.user_ids.includes(user.id);
+        if (user.id !== self.props.currentUser.id) {
+          const selected = this.state.member_ids.includes(user.id);
           return (
-            <div>
-
-              <li
-                key={`dm-li-${user.id}`}
-                className={ selected ? "activate" : "" }
-                onClick={ this.selectUser.bind(this, user.id, user.username) }
-                >
-                { user.username }
-              </li>
-
-            </div>
+            <li
+              key={`dm-li-${user.id}`}
+              className={ selected ? "activate" : "" }
+              onClick={ this.selectUser.bind(this, user.id, user.username) }
+              >
+              { user.username }
+            </li>
           );
         }
     });

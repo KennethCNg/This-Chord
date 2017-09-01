@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter} from 'react-router';
 import { selectDMs } from './selector';
+import { NavLink } from 'react-router-dom';
 
 class DMIndex extends React.Component {
   constructor(props) {
@@ -11,32 +12,32 @@ class DMIndex extends React.Component {
       channel_id: "",
       member_ids: [],
     };
-
-    // this.handleClick = this.handleClick.bind(this);
   }
-
-  // handleClick(chatroomId) {
-  //   return (e) => {
-  //     e.preventDefault();
-  //     this.props.requestDestroyChatroom(chatroomId);
-  //   };
-  // }
-
 
   render() {
     if (this.props.directMessages.length > 0) {
       const directMessageIndexItems = this.props.directMessages.map((dm, idx) => {
         return (
-          <NavLink to={`/direct_messages/${dm.id}`}>
-            <li key={`dm-li-${idx}`}>
-              { dm.name }
+          <NavLink
+            key={`dm-nv-${dm.id}`}
+            to={`/direct_messages/${dm.id}`}
+            activeClassName="banana"
+            >
+            <li
+              className="chatroom_index_item"
+              key={`dm-li-${dm.id}`}>
+              <div
+                className="chatroom_name"
+                key={`dm-div-${dm.id}`}>
+                { dm.name }
+              </div>
             </li>
           </NavLink>
         );
       });
       return (
         <div>
-          <ul className="dm_index">
+          <ul className="chatroom_index">
             { directMessageIndexItems }
           </ul>
         </div>

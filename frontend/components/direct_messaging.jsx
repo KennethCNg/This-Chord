@@ -26,11 +26,24 @@ class DirectMessaging extends React.Component {
   render() {
     return(
       <div>
-        <div>
+        <div className="thischord" />
 
-          <button onClick={ this.handleClick }>
-            BUTTON
-          </button>
+
+        <div>
+          <div className="channel_text_and_button">
+            <div className="channel_text">
+              DIRECT MESSAGES
+            </div>
+
+          <div>
+            <button onClick={ this.handleClick } className="channel_button">
+              +
+            </button>
+          </div>
+        </div>
+
+          <DMIndex />
+        </div>
 
           <DMModal
             isOpen={this.state.modalOpen}
@@ -38,10 +51,7 @@ class DirectMessaging extends React.Component {
             currentUser={this.props.currentUser}
             users={this.props.users}
             />
-
-        </div>
-        {/*<DMIndex />*/}
-      </div>
+    </div>
     );
   }
 

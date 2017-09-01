@@ -61,10 +61,12 @@ class Chatroom extends React.Component {
           <div className="channel_text">
             CHANNELS
           </div>
+
           <div>
             <button onClick={ this.handleClick } className="channel_button">
               +
             </button>
+
           </div>
         </div>
 

@@ -7,7 +7,8 @@ const directMessagesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CHATROOMS:
-      return merge({}, action.chatrooms.directMessages);
+    debugger;
+      return merge({}, action.name.directMessages);
     case CLEAR_STATE:
       return {};
     default:

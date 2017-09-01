@@ -13,7 +13,7 @@
 class Chatroom < ApplicationRecord
   validates :name, :admin_id, presence: true
   validates :private, inclusion: { in: [ true, false ] }
-  validates :name, length: {minimum: 2, maximum: 15}
+  validates :name, length: { minimum: 2 }
 
   has_many(
     :messages,

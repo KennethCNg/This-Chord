@@ -2,7 +2,6 @@ class Api::ChatroomsController < ApplicationController
 
   def index
     @chatrooms = Chatroom.all
-    @directmessages = current_user.direct_messages
     render :index
   end
 

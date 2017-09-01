@@ -7,7 +7,7 @@ const chatroomReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CHATROOMS:
-      return merge({}, action.chatrooms);
+      return merge({}, action.name.chatrooms);
     case CLEAR_STATE:
       return {};
     default:

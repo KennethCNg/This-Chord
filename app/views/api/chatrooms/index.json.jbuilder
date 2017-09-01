@@ -1,14 +1,19 @@
-
-@chatrooms.each do |chatroom|
-  json.set! chatroom.id do
-    json.extract! chatroom, :id, :name, :admin_id
+json.chatrooms do
+  @chatrooms.each do |chatroom|
+    if chatroom.private != true
+        json.set! chatroom.id do
+          json.extract! chatroom, :id, :name, :admin_id
+        end
+    end
   end
 end
 
 json.directMessages do
-  @directmessages.each do |message|
-    json.set! message.id do
-      json.extract! message, :id, :name
+  @chatrooms.each do |chatroom|
+    if chatroom.private == true
+      json.set! chatroom.id do
+        json.extract! chatroom, :id, :name
+      end
     end
   end
 end
