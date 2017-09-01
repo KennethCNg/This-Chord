@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter} from 'react-router';
 import { selectDMs } from './selector';
 import { NavLink } from 'react-router-dom';
+import { requestAllChatrooms } from '../actions/chatroom_actions';
 
 class DMIndex extends React.Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class DMIndex extends React.Component {
       channel_id: "",
       member_ids: [],
     };
+  }
+
+  componentDidMount() {
+    this.props.requestAllChatrooms();
   }
 
   render() {
@@ -58,7 +63,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    requestAllChatrooms: () => dispatch(requestAllChatrooms()),
   };
 };
 

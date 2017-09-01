@@ -5,12 +5,12 @@ import { isEmptyObject } from '../helpers/helpers.js';
 import { isEmpty } from 'lodash';
 
 
-class Message extends React.Component {
+class DMMessage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       body: "",
-      chatroom_id: this.props.location.pathname.slice(11),
+      chatroom_id: this.props.match.params.directmessagesId,
     };
 
     this.renderMessages = this.renderMessages.bind(this);
@@ -22,14 +22,14 @@ class Message extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
+
     this.props.requestMessages(this.state.chatroom_id);
     this.scrollToBottom();
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.chatroomsId !== nextProps.match.params.chatroomsId) {
-      this.props.requestMessages(nextProps.match.params.chatroomsId);
+    if (this.props.match.params.directmessagesId !== nextProps.match.params.directmessagesId) {
+      this.props.requestMessages(nextProps.match.params.directmessagesId);
     }
     this.scrollToBottom();
   }
@@ -45,7 +45,7 @@ class Message extends React.Component {
       e.preventDefault();
       var placeholder = {
         body: this.state.body,
-        chatroom_id: this.props.location.pathname.slice(11),
+        chatroom_id: this.props.match.params.directmessagesId,
       };
       this.state.body = "";
       const message = merge({}, placeholder);
@@ -124,7 +124,7 @@ class Message extends React.Component {
 
     //line 122 is checking if this.props.chatrooms is an empty
     if ( !(isEmptyObject(this.props.chatrooms)) ) {
-      const msg = "Message #".concat(this.props.chatrooms[this.props.match.params.chatroomsId].name);
+      const msg = "Message #".concat(this.props.chatrooms[this.props.match.params.directmessagesId].name);
       return (
         <input placeholder={msg} className="message_input" type='text'
         value={ this.state.body }
@@ -136,12 +136,13 @@ class Message extends React.Component {
   }
 
   renderHeader(nextProps) {
+    debugger;
     if (isEmpty(this.props.chatrooms)) {
       return null;
     }
     return (
       <div className="welcome">
-        # { this.props.chatrooms[this.props.match.params.chatroomsId].name }
+        # { this.props.chatrooms[this.props.match.params.directmessagesId].name }
       </div>
     );
   }
@@ -167,4 +168,4 @@ class Message extends React.Component {
 }
 
 
-export default Message;
+export default DMMessage;

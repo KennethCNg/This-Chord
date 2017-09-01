@@ -9,8 +9,8 @@ class DMModal extends React.Component {
     super(props);
 
     this.state = {
-      name: [],
-      member_ids: [],
+      name: [this.props.currentUser.username],
+      member_ids: [this.props.currentUser.id],
       highlight: "active",
     };
     this.errors = this.errors.bind(this);

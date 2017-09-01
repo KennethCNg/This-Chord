@@ -7,7 +7,7 @@ export const RECEIVE_CHATROOMS = "RECEIVE_CHATROOMS";
 export const receiveChatrooms = chatrooms => {
   return {
     type: RECEIVE_CHATROOMS,
-    name: chatrooms,
+    name: chatrooms
   };
 };
 

@@ -12,6 +12,9 @@ class UserIndex extends React.Component {
     this.props.requestAllUsers();
   }
 
+  // componentWillReceiveProps() {
+  //   this.props.requestAllUsers();
+  // }
 
   render() {
     if (this.props.users.length > 0) {
@@ -21,7 +24,7 @@ class UserIndex extends React.Component {
             <li key={`user-div-${user.id}`} className="test">
               <div className="username_icon_wrapper">
                 <div className="icon_3" />
-                <div className="username">
+                <div className="username_2">
                   {user.username}
                 </div>
               </div>
@@ -30,13 +33,15 @@ class UserIndex extends React.Component {
         );
       });
       return (
-        <div >
+        <div>
           <div className="user_header">
             MEMBERS
+          </div >
+          <div className="user_index">
+            <ul>
+              { userIndexItems }
+            </ul>
           </div>
-          <ul>
-            { userIndexItems }
-          </ul>
         </div>
       );
     } else {
@@ -48,8 +53,6 @@ class UserIndex extends React.Component {
   }
 
 }
-
-
 
 const mapStateToProps = state => {
   return {

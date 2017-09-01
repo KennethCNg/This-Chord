@@ -6,9 +6,7 @@ const usersReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_USERS:
-      return merge({}, action.users );
-    case RECEIVE_CHATROOMS:
-      return merge({}, action.name.directMessages.members);
+      return merge({}, action.users);
     default:
       return state;
   }
