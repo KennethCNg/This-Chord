@@ -1,8 +1,10 @@
+/* global Pusher */
 import React from 'react';
 import merge from 'lodash/merge';
 import ReactDOM from 'react-dom';
 import { isEmptyObject } from '../helpers/helpers.js';
 import { isEmpty } from 'lodash';
+import { configureStore } from '../store/store.js';
 
 
 class Message extends React.Component {
@@ -24,13 +26,32 @@ class Message extends React.Component {
   componentDidMount() {
     this.props.requestMessages(this.state.chatroom_id);
     this.scrollToBottom();
+
+    Pusher.logToConsole = true;
+
+    const pusher = new Pusher('d2410c3eb09a8dd9ded4', {
+      cluster: 'us2',
+      encrypted: true
+    });
+
+    const channel = pusher.subscribe('create_message');
+    debugger
+    channel.bind(`thischord_ + ${this.state.chatroom_id}`, data => {
+      debugger
+      this.props.requestMessages(this.state.chatroom_id);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
+    // this requests messages of the next chatroom
     if (this.props.match.params.chatroomsId !== nextProps.match.params.chatroomsId) {
       this.props.requestMessages(nextProps.match.params.chatroomsId);
     }
     this.scrollToBottom();
+  }
+
+  componentWillUnmount() {
+
   }
 
   handleClick(messageid) {
