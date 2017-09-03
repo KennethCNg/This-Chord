@@ -13,11 +13,18 @@
 
 .user_selection_wrapper {
   display: flex;
+  flex-direction: column;
   width: 125px;
   border: solid 2px gray;
   justify-content: center;
   padding: 8px;
   color: white;
+}
+
+
+.user_selection_header {
+  border-bottom: solid 1px #7289DA;
+  align-self: center;
 }
 
 .selector_button_wrapper {

@@ -126,7 +126,12 @@ class DMModal extends React.Component {
 
             <div className="selector_button_wrapper">
               <div className="user_selection_wrapper">
+                <div className="user_selection_header">
+                  Users
+                </div>
+                <div>
               { this.renderUsers() }
+              </div>
               </div>
 
               <div className="modal_buttons">
