@@ -1,6 +1,7 @@
 import React from 'react';
 import DMIndex from './direct_messaging_index';
 import DMModal from './direct_messaging_modal';
+import { isEmpty } from 'lodash';
 
 class DirectMessaging extends React.Component {
   constructor(props) {
@@ -20,7 +21,13 @@ class DirectMessaging extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.requestAllUsers();
+    if ( isEmpty(this.props.directMessages) ) {
+        this.handleClick();
+      } else {
+        this.props.history.push(`/direct_messages/${this.props.directMessages[0].id}`);
+      }
   }
 
   render() {
