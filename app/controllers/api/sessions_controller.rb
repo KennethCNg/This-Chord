@@ -2,6 +2,9 @@ class Api::SessionsController < ApplicationController
 
   def create
     @user = User.find_user_by_credentials(user_params[:username], user_params[:password])
+    @chatrooms = Chatroom.all
+
+     @chatroom = @chatrooms.select { |chatroom| chatroom.private == false }
     if @user
       login(@user)
       render :show

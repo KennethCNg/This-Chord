@@ -10,7 +10,6 @@ class Api::MessagesController < ApplicationController
       @message.author_name = current_user.username
       if @message.save
         # publish message
-        debugger
         Pusher.trigger('create_message', 'thischord_' + @message.chatroom_id.to_s, {
           id: @message.id,
           body: @message.body,

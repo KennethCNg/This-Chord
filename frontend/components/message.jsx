@@ -35,9 +35,7 @@ class Message extends React.Component {
     });
 
     const channel = pusher.subscribe('create_message');
-    debugger
     channel.bind(`thischord_ + ${this.state.chatroom_id}`, data => {
-      debugger
       this.props.requestMessages(this.state.chatroom_id);
     });
   }

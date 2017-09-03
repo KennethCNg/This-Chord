@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import ChatroomIndex from './chatroom_index';
 import MessageContainer from './message_container';
 import ChatroomModal from './chatroom_modal';
+import { isEmpty } from 'lodash';
 
 class Chatroom extends React.Component {
   constructor(props) {
@@ -17,6 +18,11 @@ class Chatroom extends React.Component {
   }
   componentDidMount() {
     this.props.requestAllChatrooms();
+  if ( isEmpty(this.props.currentUser.chatroom) ) {
+      this.handleClick();
+    } else {
+      this.props.history.push(`/chatrooms/${this.props.currentUser.chatroom.id}`);
+    }
   }
 
   handleClick() {
