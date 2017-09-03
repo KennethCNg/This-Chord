@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { requestAllUsers } from '../actions/user_actions';
 import { selectUsers } from './selector';
 import { isEmpty } from 'lodash';
-// import { selectDMs } from './selector';
 import { selectMemberIds} from './selector';
 
 class DMUserIndex extends React.Component {
@@ -18,14 +17,13 @@ class DMUserIndex extends React.Component {
 
   selectUsers() {
     const channelId = this.props.match.params.directmessagesId;
-    return (this.props.membersIds[channelId].member_ids.map(id => this.props.users[id]));
+      return (this.props.membersIds[channelId].member_ids.map(id => this.props.users[id]));
   }
 
   render() {
-    if (isEmpty(this.props.users)) {
+    if ( isEmpty(this.props.users) || isEmpty(this.props.membersIds) ) {
       return null;
     }
-
     const arr = this.selectUsers();
     const userIndexItems = arr.map((user, idx) => {
       return (

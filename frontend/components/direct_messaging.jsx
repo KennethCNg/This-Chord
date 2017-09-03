@@ -21,7 +21,6 @@ class DirectMessaging extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.requestAllUsers();
     if ( isEmpty(this.props.directMessages) ) {
         this.handleClick();

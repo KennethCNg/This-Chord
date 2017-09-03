@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import merge from 'lodash/merge';
+import {isEmpty} from 'lodash';
 
 // import { receiveChatrooms, requestAllChatrooms, RECEIVE_CHATROOMS } from './actions/chatroom_actions';
 // import { fetchAllChatrooms } from './util/chatroom_api_util';
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={ store }/>, root);
 });
 
+window.isEmpty = isEmpty;
 // window.fetchAllChatrooms = fetchAllChatrooms;
 // window.receiveChatrooms = receiveChatrooms;
 // window.requestAllChatrooms = requestAllChatrooms;
