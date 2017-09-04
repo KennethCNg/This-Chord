@@ -11,10 +11,27 @@
 
 This-Chord is a web application inspired by Discord, the free voice and text chat app designed with gamers in mind. This-Chord's backend is built on Ruby on Rails and frontend on React/Redux with the following functionalities:
 
-- [ ] Live chat
 - [ ] Channels
 - [ ] Direct messaging
 - [ ] Multi-person direct messaging
+
+## Features and Implementation
+
+### Channels
+
+On login, the user is brought to the first channel available. If there are no channels to join, the form to create a channel is brought up instead. Channels are made by clicking on the "+" in the CHANNELS column. Channels are open for all users to chat. However, only the administrator of the channel is able to delete the channel. On creation of a channel, the backend stores a reference to the creator/administrator. Every channel has a list on the right side of the page of the members. The channel header and message box renders to have the same name as the channel for conformity.
+
+### Messages
+
+Messages are made by typing into the input box. On creation, a reference to the author is saved in the backend allowing only the author to delete his/her own message. This is done by clicking on the "X" on the far right of every comment.
+
+### Direct Messaging and Multi-person Direct Messaging
+
+Maneuvering to direct messaging and multi-person direct messaging is done via the blue icon on the top left corner of the screen. Similar to channels, enter the direct message page will bring you to the first direct message available, else render the form to create a direct message. Because direct messages are private, only the message group of that respective person will appear. On creation of a direct message, the channel name is made up of the members of the messaging group. The backend saves direct messaging as a channel, but with a column titled "private" and boolean of true. This is how direct messages and channels are differentiated.
+
+To return to the channel page, click on the gray icon below the blue one you clicked on earlier to enter direct messaging.
+
+
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -54,6 +71,7 @@ This-Chord is a web application inspired by Discord, the free voice and text cha
 
 ### Bonus Features (TBD)
 
+- [ ] Live Chat
 - [ ] Landing Page
 - [ ] Friends
 - [ ] Photo Upload functionality
