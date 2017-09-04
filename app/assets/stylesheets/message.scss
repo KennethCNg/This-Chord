@@ -28,6 +28,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.messages_scroller::-webkit-scrollbar-thumb {
+  background-color: red;
+}
+
 .messages {
   flex-direction: row;
   padding-top: 20px;
