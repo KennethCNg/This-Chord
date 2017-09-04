@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloadedState = { session: { currentUser: window.currentUser } };
     store = configureStore(preloadedState);
     window.store = configureStore();
-    // window.dispatch = store.dispatch;
-    // window.getState = store.getState;
     delete window.currentUser;
   } else {
     store = configureStore();
@@ -28,7 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={ store }/>, root);
 });
 
-window.isEmpty = isEmpty;
+// window.dispatch = store.dispatch;
+// window.getState = store.getState;
+// window.isEmpty = isEmpty;
 // window.fetchAllChatrooms = fetchAllChatrooms;
 // window.receiveChatrooms = receiveChatrooms;
 // window.requestAllChatrooms = requestAllChatrooms;
