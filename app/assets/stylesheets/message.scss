@@ -28,8 +28,9 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.messages_scroller::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background-color: red;
+  outline: 1px solid blue;
 }
 
 .messages {
