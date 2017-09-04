@@ -48,10 +48,6 @@ class Message extends React.Component {
     this.scrollToBottom();
   }
 
-  componentWillUnmount() {
-
-  }
-
   handleClick(messageid) {
     return (e) => {
       e.preventDefault();

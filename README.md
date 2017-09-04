@@ -1,4 +1,4 @@
-# Harmony
+# This-Chord
 
 [Heroku link][heroku]
 
@@ -9,7 +9,7 @@
 
 ## MVP (Minimum Viable Product)
 
-Harmony is a web application inspired by Discord, the free voice and text chat app designed with gamers in mind. Harmony's backend is built on Ruby on Rails and a frontend of React/Redux with the following functionalities:
+This-Chord is a web application inspired by Discord, the free voice and text chat app designed with gamers in mind. This-Chord's backend is built on Ruby on Rails and frontend on React/Redux with the following functionalities:
 
 - [ ] Live chat
 - [ ] Channels
