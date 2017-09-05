@@ -20,29 +20,3 @@ var prodPlugins = [
 plugins = plugins.concat(
   process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
 );
-
-module.exports = {
-  context: __dirname,
-  entry: "./frontend/<name of entry file>",
-  output: {
-    path: path.resolve(__dirname, "app", "assets", "javascripts"),
-    filename: "bundle.js"
-  },
-  plugins: plugins,
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
-  },
-  devtool: 'source-map',
-  resolve: {
-    extensions: [".js", ".jsx", "*"]
-  }
-};
