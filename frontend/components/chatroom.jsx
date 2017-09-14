@@ -68,12 +68,12 @@ class Chatroom extends React.Component {
             CHANNELS
           </div>
 
-          <div>
+
             <button onClick={ this.handleClick } className="channel_button">
               +
             </button>
 
-          </div>
+          
         </div>
 
         <ChatroomIndex chatrooms={this.props.chatrooms} currentUser={this.props.currentUser}/>

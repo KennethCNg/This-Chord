@@ -30,12 +30,17 @@ class Home extends React.Component {
 
         {/* Left to Right */}
         <div className="home_outer_sidebar_left">
+          <div className="left_words">Direct Messaging</div>
           <div className="dms_wrapper">
-          <NavLink to={`/direct_messages`}>
-            <div className="dms" />
-            </NavLink>
-          </div>
 
+          <NavLink to={`/direct_messages`}>
+
+            <div className="dms" />
+
+            </NavLink>
+
+          </div>
+          <div className="left_words">Channels</div>
           <div className="channel_wrapper">
             <NavLink to={`/chatrooms`}>
               <div className="channels" />
