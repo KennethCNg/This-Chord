@@ -19,6 +19,7 @@ class Chatroom extends React.Component {
   componentDidMount() {
     this.props.requestAllChatrooms();
     if ( isEmpty(this.props.currentUser.chatroom) ) {
+      debugger;
       this.handleClick();
     } else {
       this.props.history.push(`/chatrooms/${this.props.currentUser.chatroom.id}`);
@@ -33,7 +34,6 @@ class Chatroom extends React.Component {
 
 
   render() {
-    debugger;
     return (
       <div>
         <div className="thischord" />
