@@ -135,8 +135,7 @@ class Message extends React.Component {
   }
 
   renderInput() {
-
-    //line 122 is checking if this.props.chatrooms is an empty
+    
     if ( !(isEmptyObject(this.props.chatrooms)) ) {
       const msg = "Message #".concat(this.props.chatrooms[this.props.match.params.chatroomsId].name);
       return (

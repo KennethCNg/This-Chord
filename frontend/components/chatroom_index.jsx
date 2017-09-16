@@ -69,7 +69,6 @@ class ChatroomIndex extends React.Component {
                     Gear
                   </button>*/}
 
-
                   {chatroom.admin_id === this.props.currentUser.id &&
                   <button
                     key={`chatroom-delete-button-${chatroom.id}`}

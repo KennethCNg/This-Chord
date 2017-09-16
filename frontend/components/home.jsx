@@ -33,26 +33,31 @@ class Home extends React.Component {
           <div className="left_words">Direct Messaging</div>
           <div className="dms_wrapper">
 
+          {/*DM Icon*/}
           <NavLink to={`/direct_messages`}>
-
             <div className="dms" />
+          </NavLink>
+            </div>
 
-            </NavLink>
-
-          </div>
           <div className="left_words">Channels</div>
           <div className="channel_wrapper">
-            <NavLink to={`/chatrooms`}>
-              <div className="channels" />
-            </NavLink>
+
+          {/* Chatroom Icon */}
+          <NavLink to={`/chatrooms`}>
+            <div className="channels" />
+          </NavLink>
             </div>
+
+
         </div>
 
 
+        {/* 2nd leftmost container (holds chatroom index or dm index) */}
         <div className="home_inner_sidebar_left">
-          {/*<ChatroomContainer />*/}
           <Route path="/chatrooms" component={ ChatroomContainer } />
           <Route path="/direct_messages" component={ DirectMessagingContainer } />
+
+          {/* User profile at the bottom of the index */}
           <div className="logout">
             <div className="user_info">
               <div className="icon_2" />

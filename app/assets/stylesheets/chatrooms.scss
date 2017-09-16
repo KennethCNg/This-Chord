@@ -38,10 +38,16 @@
   font-size: 17px;
   font-weight: bold;
   color: white;
+  opacity: 0.6;
   background-color: #2C2F33;
   border: none;
   cursor: pointer;
   transform: translateY(-10%);
+}
+
+.channel_button:hover {
+  color: white;
+  opacity: 1;
 }
 
 .chatroom_index {
@@ -62,14 +68,6 @@
   height: 32px;
 }
 
-// .banana {
-//   background-color: gray;
-// }
-//
-// .banana li div {
-//   color: white;
-// }
-
 .chatroom_index_item:active {
   color: white;
   background: transparentize(#2C2F33, 0.2);
@@ -82,13 +80,6 @@
   background: transparentize(#2C2F33, 0.2);
 }
 
-// .chatroom_index_item:focus {
-//   display: flex;
-//   -webkit-filter: brightness(150%);
-//   color: white;
-//   opacity: 1;
-//   justify-content: center;
-// }
 
 .chatroom_name {
   color: white;

@@ -18,7 +18,7 @@ class Chatroom extends React.Component {
   }
   componentDidMount() {
     this.props.requestAllChatrooms();
-  if ( isEmpty(this.props.currentUser.chatroom) ) {
+    if ( isEmpty(this.props.currentUser.chatroom) ) {
       this.handleClick();
     } else {
       this.props.history.push(`/chatrooms/${this.props.currentUser.chatroom.id}`);
@@ -33,6 +33,7 @@ class Chatroom extends React.Component {
 
 
   render() {
+    debugger;
     return (
       <div>
         <div className="thischord" />
@@ -42,7 +43,7 @@ class Chatroom extends React.Component {
           <div className="channel_text">
             CHANNELS
           </div>
-          <div className="channl-btns">
+          <div className="channel-btns">
 
 
             <button onClick={ this.handleClick } className="channel_button">
