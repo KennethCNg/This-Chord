@@ -7,14 +7,13 @@
   left: 50%;
   right: 50%;
   border: solid 1px black;
-  transform: translate(-50%, +45%);
+  transform: translate(-50%, +125%);
   max-width: 660px;
   max-height: 200px;
   background-color: #36393f;
   border-radius: 5px;
   padding: 20px;
-  transition-delay: 1s, 4ms;
-  transition-timing-function: ease-in;
+  opacity: 1;
 }
 
 .modal_backdrop {
@@ -25,7 +24,7 @@
   left:0;
   right:0;
   z-index: 10;
-  opacity: .75;
+  opacity: .93;
 }
 
 .modalwrapper {
@@ -137,4 +136,42 @@
 
 .modal_cancel_button:hover {
   text-decoration: underline;
+}
+
+
+
+/*INVITE MODAL*/
+
+.modal_invite {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 366px;
+  width: 440px;
+  left: 50%;
+  right: 50%;
+  border: solid 1px black;
+  transform: translate(-50%, +125%);
+  max-width: 660px;
+  max-height: 200px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  opacity: 1;
+}
+
+.invite_form_header {
+  display: flex;
+  padding: 0px, 40px;
+}
+
+.invite_header {
+  display: flex;
+  font-family: 'Mukta Mahee', sans-serif;
+  align-items: center;
+  color: #4f545c;
+  font-size: 18px;
+  padding-top: 28px;
+  justify-content: center;
+  font-weight: bolder;
 }

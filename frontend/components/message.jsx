@@ -27,7 +27,7 @@ class Message extends React.Component {
     this.props.requestMessages(this.state.chatroom_id);
     this.scrollToBottom();
 
-    Pusher.logToConsole = true;
+    // Pusher.logToConsole = true;
 
     const pusher = new Pusher('d2410c3eb09a8dd9ded4', {
       cluster: 'us2',
