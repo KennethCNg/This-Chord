@@ -16,6 +16,23 @@
   opacity: 1;
 }
 
+.dm_modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 400px;
+  width: 440px;
+  left: 50%;
+  right: 50%;
+  border: solid 1px black;
+  transform: translate(-50%, +50%);
+  max-width: 660px;
+  background-color: #36393f;
+  border-radius: 5px;
+  padding: 20px;
+  opacity: 1;
+}
+
 .modal_backdrop {
   background-color: black;
   position: fixed;

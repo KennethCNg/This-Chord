@@ -103,7 +103,7 @@ class DMModal extends React.Component {
     if (this.props.isOpen) {
       return (
       <div className="modal_backdrop" onClick={ this.props.handleClose }>
-        <div className="modal">
+        <div className="dm_modal">
 
           <form onSubmit={ this.handleSubmit } onClick={(e) => e.stopPropagation()}>
             <div className="modal_wrapper">
