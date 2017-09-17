@@ -34,7 +34,7 @@ class Home extends React.Component {
           <div className="dms_wrapper">
 
           {/*DM Icon*/}
-          <NavLink to={`/direct_messages`}>
+          <NavLink to={`/direct_messages/${this.props.currentUser.dmIds[0]}`}>
             <div className="dms" />
           </NavLink>
             </div>
@@ -43,7 +43,7 @@ class Home extends React.Component {
           <div className="channel_wrapper">
 
           {/* Chatroom Icon */}
-          <NavLink to={`/chatrooms`}>
+          <NavLink to={`/chatrooms/${this.props.currentUser.chatroom.id}`}>
             <div className="channels" />
           </NavLink>
             </div>
@@ -91,7 +91,9 @@ class Home extends React.Component {
 
 
       </div>
-    );
+      );
+    } else {
+      return null;
     }
   }
 }
