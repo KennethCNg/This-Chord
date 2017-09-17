@@ -18,11 +18,11 @@ class Chatroom extends React.Component {
   }
   componentDidMount() {
     this.props.requestAllChatrooms();
-    if ( isEmpty(this.props.currentUser) ) {
+    if ( isEmpty(this.props.chatrooms && this.props.currentUser.chatroom) ) {
       this.handleClick();
     }
     else {
-      this.props.history.push(`/chatrooms/${this.props.chatroomId}`);
+      this.props.history.push(`/chatrooms/${this.props.currentUser.chatroom.id}`);
     }
   }
 

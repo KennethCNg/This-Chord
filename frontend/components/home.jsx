@@ -27,8 +27,8 @@ class Home extends React.Component {
   }
 
   render() {
-    if (this.props.directMessages && this.props.chatrooms.length > 0) {
-      
+    if (this.props.currentUser) {
+
       return (
       <div className="home_container">
 
@@ -38,19 +38,33 @@ class Home extends React.Component {
           <div className="dms_wrapper">
 
           {/*DM Icon*/}
-          <NavLink to={`/direct_messages/${this.props.directMessages[0].id}`}>
-            <div className="dms" />
-          </NavLink>
-            </div>
+          { (this.props.directMessages.length > 0) ? (
+              <NavLink to={`/direct_messages/${this.props.directMessages[0].id}`}>
+                <div className="dms" ></div>
+              </NavLink>
+          ) : (
+            <NavLink to={`/direct_messages`}>
+              <div className="dms"></div>
+            </NavLink>
+          )}
+
+        </div>
 
           <div className="left_words">Channels</div>
           <div className="channel_wrapper">
 
           {/* Chatroom Icon */}
-          <NavLink to={`/chatrooms/${this.props.chatrooms[0].id}`}>
-            <div className="channels" />
-          </NavLink>
-            </div>
+          { (this.props.directMessages.length > 0) ? (
+            <NavLink to={`/chatrooms/${this.props.chatrooms[0].id}`}>
+              <div className="channels"></div>
+            </NavLink>
+          ) : (
+            <NavLink to={`/chatrooms`}>
+              <div className="channels"></div>
+            </NavLink>
+          )}
+        </div>
+
 
 
         </div>
