@@ -27,7 +27,8 @@ class Home extends React.Component {
   }
 
   render() {
-    if (this.props.currentUser && this.props.chatrooms.length > 0) {
+    if (this.props.directMessages && this.props.chatrooms.length > 0) {
+      
       return (
       <div className="home_container">
 
