@@ -42,6 +42,7 @@ class ChatroomIndex extends React.Component {
   handleClick(chatroomId) {
     return (e) => {
       e.preventDefault();
+      this.props.history.push(`/chatrooms/${this.props.chatrooms[0].id}`);
       this.props.requestDestroyChatroom(chatroomId);
     };
   }

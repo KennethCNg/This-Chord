@@ -22,7 +22,6 @@ class Chatroom extends React.Component {
       this.handleClick();
     }
     else {
-      debugger;
       this.props.history.push(`/chatrooms/${this.props.chatroomId}`);
     }
   }

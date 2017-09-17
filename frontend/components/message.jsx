@@ -135,7 +135,7 @@ class Message extends React.Component {
   }
 
   renderInput() {
-    
+
     if ( !(isEmptyObject(this.props.chatrooms)) ) {
       const msg = "Message #".concat(this.props.chatrooms[this.props.match.params.chatroomsId].name);
       return (
@@ -160,6 +160,7 @@ class Message extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <div>
         <div className="home_header">
