@@ -5,7 +5,6 @@ import { requestChatroomMessages } from '../actions/chatroom_actions';
 import { selectMessages  } from './selector';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   return {
     messages: selectMessages(state),
     currentUser: state.session.currentUser,

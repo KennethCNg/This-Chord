@@ -11,7 +11,7 @@ class Api::MessagesController < ApplicationController
       if @message.save
         # publish message
 
-        Pusher.trigger('create_message', 'thischord_' + @message.chatroom_id.to_s, {
+        Pusher.trigger('thischord_' + @message.chatroom_id.to_s, 'create_message', {
           id: @message.id,
           body: @message.body,
           author_id: @message.author_id,

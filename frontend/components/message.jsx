@@ -1,4 +1,4 @@
-/* global Pusher */
+/* globals Pusher */
 import React from 'react';
 import merge from 'lodash/merge';
 import ReactDOM from 'react-dom';
@@ -27,15 +27,15 @@ class Message extends React.Component {
     this.props.requestMessages(this.state.chatroom_id);
     this.scrollToBottom();
 
-    // Pusher.logToConsole = true;
+    Pusher.logToConsole = true;
 
     const pusher = new Pusher('d2410c3eb09a8dd9ded4', {
       cluster: 'us2',
       encrypted: true
     });
 
-    const channel = pusher.subscribe('create_message');
-    channel.bind(`thischord_ + ${this.state.chatroom_id}`, data => {
+    const channel = pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
+    channel.bind('create_message', data => {
       this.props.requestMessages(this.state.chatroom_id);
     });
   }
@@ -160,7 +160,6 @@ class Message extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <div className="home_header">
