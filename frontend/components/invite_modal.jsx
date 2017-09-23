@@ -46,7 +46,6 @@ class InviteModal extends React.Component {
   }
 
   render() {
-
     if (this.props.isInviteOpen && this.props.pathname !== "/") {
         return (
           <div className="modal_backdrop" onClick={ this.props.handleClose }>
@@ -54,17 +53,17 @@ class InviteModal extends React.Component {
 
               <div className="invite_form_header">
                 <header className="invite_header">
-                  Invite People to { this.props.chatroomName }
+                  Invite People to { this.props.chatroomName[0].name }
                 </header>
                 <div className="invite_div">
                   Share this link with others to grant access to this server
                 </div>
               </div>
 
-                {/*<div className="share_link">
+                <div className="share_link">
                   this-chord.herokuapp.com:
                   { this.props.location.pathname }
-                </div>*/}
+                </div>
 
 
             </div>

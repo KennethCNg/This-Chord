@@ -33,6 +33,7 @@ class ChatroomIndex extends React.Component {
 
   openModal(id) {
     return (e) => {
+      e.stopPropagation();
       this.setState({
         modalInviteOpen: id,
       });
@@ -41,6 +42,7 @@ class ChatroomIndex extends React.Component {
 
   handleClick(chatroomId) {
     return (e) => {
+      e.stopPropagation();
       e.preventDefault();
       this.props.history.push(`/chatrooms/${this.props.chatrooms[0].id}`);
       this.props.requestDestroyChatroom(chatroomId);
@@ -66,19 +68,26 @@ class ChatroomIndex extends React.Component {
                     # {chatroom.name}
                   </div>
 
-                  {/*<button onClick={ this.openModal(chatroom.id) } className="channel_gear">
+                  {/*<button onClick={ this.openModal(chatroom.id)} className="channel_gear">
                     Gear
                   </button>*/}
 
-                  {chatroom.admin_id === this.props.currentUser.id &&
+                  <InviteModal
+                    isInviteOpen={this.isModalOpen(chatroom.id)}
+                    handleClose={this.closeModal}
+                    location={this.props.location}
+                    pathname={this.props.location.pathname}
+                    chatroomName={ this.props.chatrooms }
+                    />
+
+                  {(chatroom.admin_id === this.props.currentUser.id) &&
                   <button
                     key={`chatroom-delete-button-${chatroom.id}`}
                     type="submit"
                     className="chatroom_delete_button"
-                    onClick={ this.handleClick(chatroom.id) }>
+                    onClick={ this.handleClick(chatroom.id)}>
                     X
                   </button>
-
                     }
                 </li>
               </NavLink>
@@ -89,13 +98,6 @@ class ChatroomIndex extends React.Component {
               <ul className="chatroom_index">
                 { chatroomIndexItems }
 
-                <InviteModal
-                  isInviteOpen={this.isModalOpen()}
-                  handleClose={this.closeModal}
-                  location={this.props.location}
-                  pathname={this.props.location.pathname}
-                  chatroomName={ this.props.chatrooms }
-                  />
               </ul>
             </div>
           );

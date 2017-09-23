@@ -15,7 +15,7 @@ const App = () => {
             <ProtectedRoute path="/" component={HomeContainer} />
           </Switch>
       </div>
-);
+  );
 };
 
 export default App;

@@ -192,3 +192,17 @@
   justify-content: center;
   font-weight: bolder;
 }
+
+
+.edit-icon {
+  width: 10%;
+  color: #484848;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.edit-icon .fa {
+  font-size: 1.2em;
+}

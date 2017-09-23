@@ -7,10 +7,17 @@ import DirectMessagingContainer from './direct_messaging_container';
 import UserIndex from './user_index';
 import DMMessageContainer from './dm_message_container';
 import DMUserIndex from './dm_user_index';
+import EditModal from './edit_modal';
+import FontAwesome from 'react-fontawesome';
+
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      modalOpen: false,
+    };
 
     this.handleClick = this.handleClick.bind(this);
   }
@@ -19,6 +26,14 @@ class Home extends React.Component {
     return (e) => {
       e.preventDefault();
       this.props.requestLogout();
+    };
+  }
+
+  handleEdit() {
+    return (e) => {
+      this.setState({
+        modalOpen: !this.state.modalOpen,
+      });
     };
   }
 
@@ -89,7 +104,17 @@ class Home extends React.Component {
               </span>
             </div>
 
+            <EditModal
+              isOpen={this.state.modalOpen}
+              handleClose={this.handleClick}
+              currentUser={this.props.currentUser} />
+
             </div>
+
+            <div className='edit-icon' onClick={ this.handleEdit() }>
+              <FontAwesome name='cog' size='2x' />
+            </div>
+
             <button className="logout_button" onClick={ this.handleClick() }>Logout</button>
           </div>
         </div>
