@@ -33,7 +33,6 @@ class ChatroomIndex extends React.Component {
 
   openModal(id) {
     return (e) => {
-      e.stopPropagation();
       this.setState({
         modalInviteOpen: id,
       });
@@ -42,7 +41,6 @@ class ChatroomIndex extends React.Component {
 
   handleClick(chatroomId) {
     return (e) => {
-      e.stopPropagation();
       e.preventDefault();
       this.props.history.push(`/chatrooms/${this.props.chatrooms[0].id}`);
       this.props.requestDestroyChatroom(chatroomId);

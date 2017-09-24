@@ -5,6 +5,7 @@ import Root from './components/root';
 import merge from 'lodash/merge';
 import { isEmpty } from 'lodash';
 import values from 'lodash/values';
+import { editUser } from './util/user_api_util';
 
 // import { receiveChatrooms, requestAllChatrooms, RECEIVE_CHATROOMS } from './actions/chatroom_actions';
 // import { fetchAllChatrooms } from './util/chatroom_api_util';
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.values = values;
+window.editUser = editUser;
 // window.dispatch = store.dispatch;
 // window.getState = store.getState;
 // window.isEmpty = isEmpty;

@@ -17,3 +17,10 @@ export const requestAllUsers = () => dispatch => {
   (err) => dispatch(receiveErrors(err.responseJSON)))
   );
 };
+
+
+export const editUser = user => dispatch => {
+  return (
+    UsersAPIUtil.editUser(user)
+  );
+};

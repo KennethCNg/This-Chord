@@ -20,21 +20,17 @@ class Home extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleClick() {
-    return (e) => {
-      e.preventDefault();
-      this.props.requestLogout();
-    };
+    this.props.requestLogout();
   }
 
   handleEdit() {
-    return (e) => {
-      this.setState({
-        modalOpen: !this.state.modalOpen,
-      });
-    };
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+    });
   }
 
   componentDidMount() {
@@ -106,16 +102,16 @@ class Home extends React.Component {
 
             <EditModal
               isOpen={this.state.modalOpen}
-              handleClose={this.handleClick}
+              handleClose={this.handleEdit}
               currentUser={this.props.currentUser} />
 
             </div>
 
-            <div className='edit-icon' onClick={ this.handleEdit() }>
+            <div className='edit-icon' onClick={ this.handleEdit }>
               <FontAwesome name='cog' size='2x' />
             </div>
 
-            <button className="logout_button" onClick={ this.handleClick() }>Logout</button>
+            <button className="logout_button" onClick={ this.handleClick }>Logout</button>
           </div>
         </div>
 

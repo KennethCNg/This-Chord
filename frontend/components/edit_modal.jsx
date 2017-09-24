@@ -1,13 +1,16 @@
 import React from 'react';
+import merge from 'lodash/merge';
+import { editUser } from '../actions/user_actions';
 import { connect } from 'react-redux';
+
 
 class EditModal extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: "",
-      password: "",
+      username: this.props.currentUser.username,
+      // password: "",
     };
 
     this.errors = this.errors.bind(this);
@@ -16,13 +19,16 @@ class EditModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     var placeholder = {
-      username: this.state.username,
+      id: this.props.currentUser.id,
+      user: {
+        user:{
+          username: this.state.username
+        }}
     };
-    this.props.handleClose();
-    const user = Object.assign({}, placeholder);
+    const user = merge({}, placeholder);
     this.props.editUser( {user} );
+    this.props.handleClose();
   }
 
   update(prop) {
@@ -55,15 +61,11 @@ class EditModal extends React.Component {
           <form onSubmit={ this.handleSubmit } onClick={(e) => e.stopPropagation()}>
             <div className="modal_wrapper">
               <div className="modal_header">
-                CREATE CHANNEL
+                USERNAME
               </div>
+              <input className="modal_input" required type='text'
+                onChange={this.update('name')} />
               <div className="modal_form_wrapper">
-                <div className="modal_input_name">
-                  CHANNEL NAME
-                </div>
-                <input className="modal_input" required type='text'
-                  value={ this.state.name }
-                  onChange={this.update('name')} />
               </div>
             </div>
             <div className="modal_buttons">
@@ -95,7 +97,7 @@ const MapStateToProps = ( state, ownProps ) => {
 
 const MapDispatchToProps = dispatch => {
   return {
-
+    editUser: (user) => dispatch(editUser(user)),
   };
 };
 
