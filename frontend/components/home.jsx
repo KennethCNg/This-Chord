@@ -108,7 +108,7 @@ class Home extends React.Component {
             </div>
 
             <div className='edit-icon' onClick={ this.handleEdit }>
-              <FontAwesome name='cog' size='1x' />
+              <FontAwesome name='cog' size='2x' />
             </div>
 
             <button className="logout_button" onClick={ this.handleClick }>Logout</button>
