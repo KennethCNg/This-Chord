@@ -10,7 +10,7 @@ class EditModal extends React.Component {
 
     this.state = {
       username: this.props.currentUser.username,
-      // password: "",
+      password: "",
     };
 
     this.errors = this.errors.bind(this);
@@ -23,7 +23,8 @@ class EditModal extends React.Component {
       id: this.props.currentUser.id,
       user: {
         user:{
-          username: this.state.username
+          username: this.state.username,
+          password: this.state.password,
         }}
     };
     const user = merge({}, placeholder);
