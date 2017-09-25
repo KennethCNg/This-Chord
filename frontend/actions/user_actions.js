@@ -12,7 +12,6 @@ export const receiveUsers = users => {
 };
 
 export const requestAllUsers = () => dispatch => {
-  debugger;
   return (
     UsersAPIUtil.fetchAllUsers()
     .then((fetchedUsers) => dispatch(receiveUsers(fetchedUsers)),
@@ -24,7 +23,7 @@ export const requestAllUsers = () => dispatch => {
 export const editUser = user => dispatch => {
   return (
     UsersAPIUtil.editUser(user)
-    // .then( () => dispatch(login()),
+    // .then( () => dispatch(login(user)),
     // (err) => dispatch(receiveErrors(err.responseJSON)))
   );
 };
