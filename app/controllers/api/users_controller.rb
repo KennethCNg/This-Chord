@@ -7,7 +7,6 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    debugger
     if @user.update_attributes(user_params)
       nil
     else
