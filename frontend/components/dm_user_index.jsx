@@ -44,7 +44,7 @@ class DMUserIndex extends React.Component {
           <div className="user_header">
             MEMBERS
           </div >
-          <div className="user_index">
+          <div className="outer_user_index">
             <ul>
               { userIndexItems }
             </ul>
