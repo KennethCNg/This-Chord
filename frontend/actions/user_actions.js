@@ -1,5 +1,6 @@
 import * as UsersAPIUtil from '../util/user_api_util';
 import { receiveErrors } from './ui_actions';
+import { login } from './session_actions';
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 
@@ -11,9 +12,19 @@ export const receiveUsers = users => {
 };
 
 export const requestAllUsers = () => dispatch => {
+  debugger;
   return (
     UsersAPIUtil.fetchAllUsers()
     .then((fetchedUsers) => dispatch(receiveUsers(fetchedUsers)),
   (err) => dispatch(receiveErrors(err.responseJSON)))
+  );
+};
+
+
+export const editUser = user => dispatch => {
+  return (
+    UsersAPIUtil.editUser(user)
+    // .then( () => dispatch(login()),
+    // (err) => dispatch(receiveErrors(err.responseJSON)))
   );
 };

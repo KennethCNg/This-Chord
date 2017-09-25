@@ -192,3 +192,84 @@
   justify-content: center;
   font-weight: bolder;
 }
+
+/*EDIT MODAL*/
+
+.edit_modal {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  height: 300px;
+  width: 700px;
+  left: 50%;
+  right: 50%;
+  border: solid 1px black;
+  transform: translate(-50%, +70%);
+  max-width: 660px;
+  background-color: #36393f;
+  border-radius: 5px;
+  padding: 20px;
+  opacity: 1;
+}
+
+.edit_form_wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.edit_form {
+  width: 100%;
+}
+
+.modal_edit_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 50%;
+  margin: 3%;
+}
+
+.modal_edit_button {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  font: white;
+  background-color: #43b581;
+  color: white;
+  height: 38px;
+  width: 80px;
+  font-size:15px;
+  border: none;
+  justify-content: center;
+  border-radius: 3px;
+  font-family: 'Mukta Mahee', sans-serif;
+}
+
+.avatar_column {
+  display: flex;
+  height: 100%;
+  width: 200px;
+}
+
+.avatar {
+  height: 40%;
+  width: 80%;
+  margin-top: 30%;
+  background-image: image-url("Avatar.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.edit-icon {
+  width: 10%;
+  color: #484848;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.edit-icon .fa {
+  font-size: 1.2em;
+}
