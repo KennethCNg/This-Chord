@@ -45,3 +45,16 @@ A channel is owned by an administrator. Only the administrator may delete a chat
 Creating a direct message is just as easy! You can navigate to the direct messages via the blue top left icon. Then similar to creating a channel, click the white +. Simply choose the users you would like to start a direct message with.
 
 The backend treats chatrooms and direct messages as the same except a chatroom has a privacy column that stores a 'false' boolean whereas a direct message stores 'true'.
+
+### Get Started
+
+1. Install dependencies by running `npm install` followed by `bundle install`
+2. This-Chord uses PostgreSQL. Start your database by running `bundle exec rake db:setup`.
+3. Start your server by running `bundle exec rails server`
+
+
+### Coming Soon To a This-Chord Near You
+
+1. Servers. These hold a collection of channels. Servers have many channels, and channels have many messages.
+2. Emojis!
+3. Changing avatars
