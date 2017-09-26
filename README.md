@@ -19,16 +19,29 @@ This-Chord is a single page web application inspired by Discord, the free voice 
 
 On first entering This-Chord, you will be prompted to either Login, Create a New Account, or sign in as Guest. The authentication utilizes a Protected Route that ensures users who attempt to access the inners of This-Chord are re-routed to the Login page.
 
-On creation of an account, the user's password is sent to the backend, hashed using the BCrypt gem, and saved as a password digest. On login, their attempted password is hashed and checked against the saved password digest.
 
-### Channel Creation
+#### Signup
+
+On creation of an account, The username and password is taken in via the session form and sent to the backend. The password is then hashed using the BCrypt gem and saved as the password digest.
+
+#### Login and Logout
+
+Data is taken in via the session form and received in the backend where the username is checked via the database, and the password is hashed and checked against the password digest.
+
+If the user is found in the database and the password is correct, a session token is generated using Base64. On Logout, the user's session token is set to null, and the database resets the session token.
+
+#### Channel Creation
 
 ![screenshot](./app/assets/images/create_channel.gif)
 
 Creating a channel is simple! Simply click the white + and you will be prompted to create a channel of your choosing.
 
-### Direct Messages Creation
+A channel is owned by an administrator. Only the administrator may delete a chatroom. This is done by click the white X next to the channel name.
+
+#### Direct Messages Creation
 
 ![screenshot](./app/assets/images/create_dm.gif)
 
-Creating a direct message is just as easy! You can navigate to the direct messages via the blue top left icon. Then similar to creating a channel, click the white +. Simply choose the users you would like to start a direct message with.  
+Creating a direct message is just as easy! You can navigate to the direct messages via the blue top left icon. Then similar to creating a channel, click the white +. Simply choose the users you would like to start a direct message with.
+
+The backend treats chatrooms and direct messages as the same except a chatroom has a privacy column that stores a 'false' boolean whereas a direct message stores 'true'.
