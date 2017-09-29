@@ -27,8 +27,6 @@ class DirectMessaging extends React.Component {
     } else {
       this.props.history.push(`/direct_messages/${this.props.directMessages[0].id}`);
     }
-
-    debugger;
   }
 
   render() {
