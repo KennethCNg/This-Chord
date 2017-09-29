@@ -40,7 +40,6 @@ class Message extends React.Component {
     messageDelete.bind('delete_message', data => {
       this.props.requestMessages(this.state.chatroom_id);
     });
-
     this.scrollToBottom();
   }
 
@@ -52,6 +51,9 @@ class Message extends React.Component {
     this.scrollToBottom();
   }
 
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
   handleClick(messageid) {
     return (e) => {
       e.preventDefault();
