@@ -18,7 +18,8 @@ class Api::MessagesController < ApplicationController
           author_name: @message.author_name,
           chatroom_id: @message.chatroom_id,
           created_at: @message.created_at,
-          })
+        })
+
         render :show
       else
         render json: @message.errors.full_messages, status: 422
@@ -28,6 +29,16 @@ class Api::MessagesController < ApplicationController
     def destroy
       @message = Message.find(params[:id])
        if @message.destroy
+
+         Pusher.trigger('thischord_' + @message.chatroom_id.to_s, 'create_message', {
+           id: @message.id,
+           body: @message.body,
+           author_id: @message.author_id,
+           author_name: @message.author_name,
+           chatroom_id: @message.chatroom_id,
+           created_at: @message.created_at,
+         })
+
          render :show
        else
          render json: @message.errors.full_messages, status: 422

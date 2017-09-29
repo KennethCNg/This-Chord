@@ -16,7 +16,15 @@ class Api::ChatroomsController < ApplicationController
     @chatroom = Chatroom.new(chatroom_params)
     @chatroom.admin_id = current_user.id
     if @chatroom.save
-      nil
+      # publish chatroom
+
+    # Pusher.trigger('thischord_', 'create_chatroom', {
+    #   id: @chatroom.id,
+    #   name: @chatroom.name,
+    #   private: @chatroom.private,
+    #   admin_id: @chatroom.admin_id,
+    # })
+
     else
       render json: @chatroom.errors.full_messages, status: 422
     end

@@ -24,9 +24,11 @@ class DirectMessaging extends React.Component {
     this.props.requestAllUsers();
     if ( isEmpty(this.props.directMessages) ) {
         this.handleClick();
-      } else {
-        this.props.history.push(`/direct_messages/${this.props.directMessages[0].id}`);
-      }
+    } else {
+      this.props.history.push(`/direct_messages/${this.props.directMessages[0].id}`);
+    }
+
+    debugger;
   }
 
   render() {

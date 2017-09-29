@@ -1,3 +1,5 @@
+/* globals Pusher */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter} from 'react-router';
@@ -17,6 +19,21 @@ class DMIndex extends React.Component {
 
   componentDidMount() {
     this.props.requestAllChatrooms();
+
+    // const pusher = new Pusher('d2410c3eb09a8dd9ded4', {
+    //   cluster: 'us2',
+    //   encrypted: true
+    // });
+
+    // const dmCreate = pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
+    // dmCreate.bind('create_message', data => {
+    //   this.props.requestMessages(this.state.chatroom_id);
+    // });
+    //
+    // const dmDelete = pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
+    // dmDelete.bind('delete_message', data => {
+    //   this.props.requestMessages(this.state.chatroom_id);
+    // });
   }
 
   render() {

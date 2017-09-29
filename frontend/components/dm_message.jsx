@@ -1,3 +1,4 @@
+/* globals Pusher */
 import React from 'react';
 import merge from 'lodash/merge';
 import ReactDOM from 'react-dom';
@@ -22,9 +23,22 @@ class DMMessage extends React.Component {
   }
 
   componentDidMount() {
-
     this.props.requestMessages(this.state.chatroom_id);
     this.scrollToBottom();
+
+    const pusher = new Pusher('d2410c3eb09a8dd9ded4', {
+      cluster: 'us2',
+      encrypted: true
+    });
+    const messageCreate = pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
+    messageCreate.bind('create_message', data => {
+      this.props.requestMessages(this.state.chatroom_id);
+    });
+
+    const messageDelete = pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
+    messageDelete.bind('delete_message', data => {
+      this.props.requestMessages(this.state.chatroom_id);
+    });
   }
 
   componentWillReceiveProps(nextProps) {

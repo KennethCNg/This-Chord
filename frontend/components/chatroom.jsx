@@ -1,3 +1,4 @@
+/* globals Pusher */
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ChatroomIndex from './chatroom_index';
@@ -24,6 +25,21 @@ class Chatroom extends React.Component {
     else {
       this.props.history.push(`/chatrooms/${this.props.currentUser.chatroom.id}`);
     }
+
+    // const pusher = new Pusher('d2410c3eb09a8dd9ded4', {
+    //   cluster: 'us2',
+    //   encrypted: true
+    // });
+
+    // const chatroomCreate = pusher.subscribe("thischord_");
+    // chatroomCreate.bind('create_chatroom', data => {
+    //   this.props.requestAllChatrooms();
+    // });
+    //
+    // const chatroomDelete = pusher.subscribe("thischord_");
+    // chatroomDelete.bind('delete_chatroom', data => {
+    //   this.props.requestAllChatroom();
+    // });
   }
 
   handleClick() {
