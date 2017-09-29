@@ -54,6 +54,8 @@ class Message extends React.Component {
   componentDidUpdate() {
     this.scrollToBottom();
   }
+
+
   handleClick(messageid) {
     return (e) => {
       e.preventDefault();
