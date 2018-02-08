@@ -26,17 +26,17 @@ class Message extends React.Component {
   componentDidMount() {
     this.props.requestMessages(this.state.chatroom_id);
 
-    const pusher = new Pusher('d2410c3eb09a8dd9ded4', {
+    this.pusher = new Pusher('d2410c3eb09a8dd9ded4', {
       cluster: 'us2',
       encrypted: true
     });
 
-    const messageCreate = pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
+    const messageCreate = this.pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
     messageCreate.bind('create_message', data => {
       this.props.requestMessages(this.state.chatroom_id);
     });
 
-    const messageDelete = pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
+    const messageDelete = this.pusher.subscribe(`thischord_` + `${this.state.chatroom_id}`);
     messageDelete.bind('delete_message', data => {
       this.props.requestMessages(this.state.chatroom_id);
     });
@@ -46,6 +46,14 @@ class Message extends React.Component {
   componentWillReceiveProps(nextProps) {
     // this requests messages of the next chatroom
     if (this.props.match.params.chatroomsId !== nextProps.match.params.chatroomsId) {
+
+      this.pusher.unsubscribe('channel_' + this.props.match.params.channel_id);
+
+      const messageCreate = this.pusher.subscribe(`thischord_` + `${nextProps.match.params.chatroomsId}`);
+      messageCreate.bind('create_message', data => {
+        this.props.requestMessages(nextProps.match.params.chatroomsId);
+      });
+
       this.props.requestMessages(nextProps.match.params.chatroomsId);
     }
     this.scrollToBottom();
@@ -54,6 +62,10 @@ class Message extends React.Component {
   componentDidUpdate() {
     this.scrollToBottom();
   }
+
+  // componentWillUnmount() {
+  //   this.pusher.unsubscribe(`thischord_` + `${this.state.chatroom_id}`);
+  // }
 
 
   handleClick(messageid) {
