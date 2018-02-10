@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { withRouter} from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import { Chatroom } from './chatroom';
-import { selectChatrooms  } from './selector';
-import { requestDestroyChatroom } from '../actions/chatroom_actions';
-import InviteModal from './invite_modal';
+import { selectChatrooms  } from '../../selector';
+import { requestDestroyChatroom } from '../../actions/chatroom_actions';
+import InviteModal from './../modal/invite_modal';
 
 
 class ChatroomIndex extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestCreateDM } from '../actions/direct_message_actions';
-import { selectUsers } from './selector';
+import { requestCreateDM } from '../../actions/direct_message_actions';
+import { selectUsers } from '../../selector';
 
 
 class DMModal extends React.Component {

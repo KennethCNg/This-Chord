@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestAllUsers } from '../actions/user_actions';
-import { selectUsers } from './selector';
+import { requestAllUsers } from '../../actions/user_actions';
+import { selectUsers } from '../../selector';
 
 class UserIndex extends React.Component {
   constructor(props) {

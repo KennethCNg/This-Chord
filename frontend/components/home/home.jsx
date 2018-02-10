@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Link, NavLink } from  'react-router-dom';
-import MessageContainer from './message_container';
-import ChatroomContainer from './chatroom_container';
-import ChatroomModal from './chatroom_modal';
-import DirectMessagingContainer from './direct_messaging_container';
+import MessageContainer from './../message/message_container';
+import ChatroomContainer from './../chatroom/chatroom_container';
+import ChatroomModal from './../modal/chatroom_modal';
+import DirectMessagingContainer from './../direct_messaging/direct_messaging_container';
 import UserIndex from './user_index';
-import DMMessageContainer from './dm_message_container';
-import DMUserIndex from './dm_user_index';
-import EditModal from './edit_modal';
+import DMMessageContainer from './../direct_messaging/dm_message_container';
+import DMUserIndex from './../direct_messaging/dm_user_index';
+import EditModal from './../modal/edit_modal';
 import FontAwesome from 'react-fontawesome';
 
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestAllUsers } from '../actions/user_actions';
-import { selectUsers } from './selector';
+import { requestAllUsers } from '../../actions/user_actions';
+import { selectUsers, selectMemberIds } from '../../selector';
 import { isEmpty } from 'lodash';
-import { selectMemberIds} from './selector';
 
 class DMUserIndex extends React.Component {
   constructor(props) {

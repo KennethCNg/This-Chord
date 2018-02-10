@@ -2,9 +2,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ChatroomIndex from './chatroom_index';
-import MessageContainer from './message_container';
-import ChatroomModal from './chatroom_modal';
-import InviteModal from './invite_modal';
+import MessageContainer from './../message/message_container';
+import ChatroomModal from './../modal/chatroom_modal';
+import InviteModal from './../modal/invite_modal';
 import { isEmpty } from 'lodash';
 
 class Chatroom extends React.Component {
@@ -25,21 +25,6 @@ class Chatroom extends React.Component {
     else {
       this.props.history.push(`/chatrooms/${this.props.currentUser.chatroom.id}`);
     }
-
-    // const pusher = new Pusher('d2410c3eb09a8dd9ded4', {
-    //   cluster: 'us2',
-    //   encrypted: true
-    // });
-
-    // const chatroomCreate = pusher.subscribe("thischord_");
-    // chatroomCreate.bind('create_chatroom', data => {
-    //   this.props.requestAllChatrooms();
-    // });
-    //
-    // const chatroomDelete = pusher.subscribe("thischord_");
-    // chatroomDelete.bind('delete_chatroom', data => {
-    //   this.props.requestAllChatroom();
-    // });
   }
 
   handleClick() {

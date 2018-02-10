@@ -2,9 +2,9 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import ReactDOM from 'react-dom';
-import { isEmptyObject } from '../helpers/helpers.js';
+import { isEmptyObject } from '../../helpers/helpers.js';
 import { isEmpty } from 'lodash';
-import { configureStore } from '../store/store.js';
+import { configureStore } from '../../store/store.js';
 
 
 class Message extends React.Component {

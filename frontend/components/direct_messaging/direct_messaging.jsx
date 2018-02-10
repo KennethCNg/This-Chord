@@ -1,6 +1,6 @@
 import React from 'react';
 import DMIndex from './direct_messaging_index';
-import DMModal from './direct_messaging_modal';
+import DMModal from './../modal/direct_messaging_modal';
 import { isEmpty } from 'lodash';
 
 class DirectMessaging extends React.Component {

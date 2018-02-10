@@ -1,6 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { editUser } from '../actions/user_actions';
+import { editUser } from '../../actions/user_actions';
 import { connect } from 'react-redux';
 
 

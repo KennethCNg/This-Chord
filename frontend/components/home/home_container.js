@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
-import { logout } from '../actions/session_actions';
+import { logout } from '../../actions/session_actions';
 import Home from './home';
-import { requestCreateMessage } from '../actions/message_actions';
-import { requestAllUsers } from '../actions/user_actions';
-import { requestAllChatrooms } from '../actions/chatroom_actions';
-import { selectUsers } from './selector';
-import { selectChatrooms } from './selector';
-import { selectDMs } from './selector';
+import { requestCreateMessage } from '../../actions/message_actions';
+import { requestAllUsers } from '../../actions/user_actions';
+import { requestAllChatrooms } from '../../actions/chatroom_actions';
+import { selectUsers, selectChatrooms, selectDMs } from '../../selector';
 
 
 const mapStateToProps = state => {

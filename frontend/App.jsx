@@ -1,8 +1,8 @@
 import React from 'react';
-import HomeContainer from './home_container';
-import SessionFormContainer from './session_form_container';
+import HomeContainer from './components/home/home_container';
+import SessionFormContainer from './components/session/session_form_container';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from './util/route_util';
 
 const App = () => {
   return (

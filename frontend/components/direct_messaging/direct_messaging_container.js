@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import DirectMessaging from './direct_messaging';
-import { selectDMs, selectUsers } from './selector';
-import { requestAllUsers } from '../actions/user_actions';
+import { selectDMs, selectUsers } from '../../selector';
+import { requestAllUsers } from '../../actions/user_actions';
 
 const mapStateToProps = state => {
   return {

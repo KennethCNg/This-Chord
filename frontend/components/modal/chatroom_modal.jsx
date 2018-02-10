@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestCreateChatroom } from '../actions/chatroom_actions';
+import { requestCreateChatroom } from '../../actions/chatroom_actions';
 
 
 class ChatroomModal extends React.Component {
