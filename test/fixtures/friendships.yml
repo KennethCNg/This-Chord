@@ -1,14 +1,13 @@
 # == Schema Information
 #
-# Table name: messages
+# Table name: friendships
 #
-#  id          :integer          not null, primary key
-#  body        :text             not null
-#  author_id   :integer          not null
-#  chatroom_id :integer          not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  author_name :string           not null
+#  id         :integer          not null, primary key
+#  friend1_id :integer          not null
+#  friend2_id :integer          not null
+#  friends?   :boolean          default(FALSE), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
