@@ -43,6 +43,19 @@ class User < ApplicationRecord
     source: :channel
   )
 
+  has_many(
+    :friends,
+    primary_id: :id,
+    foreign_key: :friend1_id,
+    class_name: 'Friendship'
+  )
+
+  has_many(
+    :friendships,
+    through: :friends,
+    source: :friend2
+  )
+
   def self.find_user_by_credentials(username, password)
     user = User.find_by(username: username)
     user && BCrypt::Password.new(user.password_digest).is_password?(password) ? user : nil
