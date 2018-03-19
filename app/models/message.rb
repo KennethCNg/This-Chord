@@ -8,7 +8,7 @@
 #  chatroom_id :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  author_name :string
+#  author_name :string           not null
 #
 
 class Message < ApplicationRecord

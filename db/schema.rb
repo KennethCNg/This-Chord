@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170826232932) do
+ActiveRecord::Schema.define(version: 20180319220933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20170826232932) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_chatrooms_on_admin_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "friend1_id", null: false
+    t.integer "friend2_id", null: false
+    t.boolean "friends?", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend1_id", "friend2_id"], name: "index_friendships_on_friend1_id_and_friend2_id", unique: true
+    t.index ["friend1_id"], name: "index_friendships_on_friend1_id"
+    t.index ["friend2_id"], name: "index_friendships_on_friend2_id"
   end
 
   create_table "memberships", force: :cascade do |t|
