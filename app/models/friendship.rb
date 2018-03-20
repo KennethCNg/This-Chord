@@ -11,30 +11,29 @@
 #
 
 class Friendship < ApplicationRecord
-    validates :friend1_id, :friend2_id, :friends?, presence: true
+    validates :friend1_id, :friend2_id, presence: true
     validates :friends?, inclusion: { in: [ true, false ] }
-    validates :friendship_exists?
+    validates_uniqueness_of :friend1_id, :scope => [:friend2_id]
+    validate :friendship_exists?, on: :create
 
     belongs_to(
-        :friend1,
-        primary_key: :friend1_id,
-        foreign_key: :friend2_id,
+        :friender,
+        primary_key: :id,
+        foreign_key: :friend1_id,
         class_name: :User
     )
 
     belongs_to(
-        :friend2,
-        primary_key: :friend1_id,
+        :friendee,
+        primary_key: :id,
         foreign_key: :friend2_id,
         class_name: :User
     )
-
-    private
     
     def friendship_exists?
         # example of lazy loading
-        friendship_1 = Friendship.where('friend1_id = ? AND friend2_id', friend1.id, friend2.id)
-        friendship_2 = Friendship.where('friend1_id = ? AND friend2_id', friend2.id, friend1.id)
+        friendship_1 = Friendship.where('friend1_id = ? AND friend2_id', friendee.id, friender.id)
+        friendship_2 = Friendship.where('friend1_id = ? AND friend2_id', friender.id, friendee.id)
         
         if  friendship_1 || friendship_2
             if friendship_1.first.friends? && friendship_1.first.friends?
@@ -42,6 +41,6 @@ class Friendship < ApplicationRecord
             else
                 return errors.add(:friendship, "You already sent a friend request!")
             end
-        end 
+        end
     end
 end

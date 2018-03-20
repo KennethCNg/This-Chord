@@ -44,16 +44,16 @@ class User < ApplicationRecord
   )
 
   has_many(
-    :friends,
-    primary_id: :id,
+    :friendships,
+    primary_key: :id,
     foreign_key: :friend1_id,
     class_name: 'Friendship'
   )
 
   has_many(
-    :friendships,
-    through: :friends,
-    source: :friend2
+    :friends,
+    through: :friendships,
+    source: :friendee
   )
 
   def self.find_user_by_credentials(username, password)
