@@ -43,4 +43,5 @@ class Friendship < ApplicationRecord
             end
         end
     end
+
 end

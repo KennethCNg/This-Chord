@@ -4,5 +4,5 @@ json.currentUser do
   unless (@chatroom.nil?)
     json.chatroom @chatroom.first
   end
-  json.friends @user.friends.map(&:id)
+  json.friends @user.friends.select { |potential_friend| potential_friend.id if potential_friend.friend? }
 end

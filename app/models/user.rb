@@ -44,7 +44,11 @@ class User < ApplicationRecord
   )
 
   has_many(
+<<<<<<< HEAD
     :friendships,
+=======
+    :friends,
+>>>>>>> add_friendships
     primary_key: :id,
     foreign_key: :friend1_id,
     class_name: 'Friendship'
